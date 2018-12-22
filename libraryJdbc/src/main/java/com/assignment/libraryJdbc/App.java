@@ -55,6 +55,21 @@ public class App {
 			break;
 
 		case 7:
+			BookProcessor.sortBookByTitle(scanner);
+			getUserInput(scanner);
+			break;
+
+		case 8:
+			SubjectProcessor.sortSubjectBySubjectTitle(scanner);
+			getUserInput(scanner);
+			break;
+
+		case 9:
+			BookProcessor.sortBookByPublishDate(scanner);
+			getUserInput(scanner);
+			break;
+
+		case 10:
 			System.out.println("Exiting... rerun program to start over.");
 			scanner.close();
 			break;
@@ -80,7 +95,10 @@ public class App {
 		System.out.println("Press 4 to Delete a book");
 		System.out.println("Press 5 to Search for a book");
 		System.out.println("Press 6 to Search for a subject");
-		System.out.println("Press 7 to Exit");
+		System.out.println("Press 7 to Sort Book By Title");
+		System.out.println("Press 8 to Sort Subject By Subject Title");
+		System.out.println("Press 9 to Sort Books by publish Date");
+		System.out.println("Press 10 to Exit");
 		System.out.println("****************************************************");
 	}
 }

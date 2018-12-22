@@ -22,24 +22,35 @@ public class BookDAO implements IBookDAO {
 		Connection connection = ConnectionFactory.getConnection();
 		List<Book> books = new ArrayList<Book>();
 		try {
+			
+			String query = "select book_id, title, price, volume, publish_date, subject_id from book where title like ?";
 			PreparedStatement ps = connection.prepareStatement(
-					"select book_id, title, price, volume, publish_date, subject_id from book where title like ?");
+					query);
 			ps.setString(1, "%" + bookName + "%");
-			ResultSet rs = ps.executeQuery();
-			while (rs.next()) {
-				Book book = new Book();
-				book.setBookId(rs.getLong("book_id"));
-				book.setTitle(rs.getString("title"));
-				book.setPrice(rs.getDouble("price"));
-				book.setVolume(rs.getInt("volume"));
-				book.setPublishDate(rs.getDate("publish_date"));
-				book.setSubjectId(rs.getLong("subject_id"));
-				books.add(book);
-			}
+			getBookResults(books, ps);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return books;
+	}
+
+	/**
+	 * @param books
+	 * @param ps
+	 * @throws SQLException
+	 */
+	private void getBookResults(List<Book> books, PreparedStatement ps) throws SQLException {
+		ResultSet rs = ps.executeQuery();
+		while (rs.next()) {
+			Book book = new Book();
+			book.setBookId(rs.getLong("book_id"));
+			book.setTitle(rs.getString("title"));
+			book.setPrice(rs.getDouble("price"));
+			book.setVolume(rs.getInt("volume"));
+			book.setPublishDate(rs.getDate("publish_date"));
+			book.setSubjectId(rs.getLong("subject_id"));
+			books.add(book);
+		}
 	}
 
 	/*
@@ -91,6 +102,21 @@ public class BookDAO implements IBookDAO {
 		}
 
 		return false;
+	}
+
+	public List<Book> getBooks() {
+		Connection connection = ConnectionFactory.getConnection();
+		List<Book> books = new ArrayList<Book>();
+		try {
+			
+			String query = "select book_id, title, price, volume, publish_date, subject_id from book";
+			PreparedStatement ps = connection.prepareStatement(
+					query);
+			getBookResults(books, ps);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return books;
 	}
 
 }

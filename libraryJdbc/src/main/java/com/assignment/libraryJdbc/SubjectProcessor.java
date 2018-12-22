@@ -1,7 +1,9 @@
 package com.assignment.libraryJdbc;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import com.assignment.libraryJdbc.dao.ISubjectDAO;
 import com.assignment.libraryJdbc.dao.SubjectDAO;
@@ -21,15 +23,22 @@ public class SubjectProcessor extends Processor {
 		List<Subject> subjects = subjectDAO.searchSubject(subjectName);
 		System.out.println("search results for keyword: " + subjectName);
 		if (!subjects.isEmpty()) {
-			for (Subject subject : subjects) {
-				System.out.println("***********************");
-				System.out.println(subject.toString());
-				System.out.println("***********************");
-			}
+			displaySubjects(subjects);
 		} else {
 			System.out.println("subjects not found with this title: " + subjectName + ". Please modify your search.");
 		}
 
+	}
+
+	/**
+	 * @param subjects
+	 */
+	private static void displaySubjects(List<Subject> subjects) {
+		for (Subject subject : subjects) {
+			System.out.println("***********************");
+			System.out.println(subject.toString());
+			System.out.println("***********************");
+		}
 	}
 
 	/**
@@ -75,6 +84,22 @@ public class SubjectProcessor extends Processor {
 		} else {
 			System.out.println("No subject found with the subjectId: " + subjectId + " for deletion.");
 		}
+	}
+
+	/**
+	 * sort subject by subject subtitle
+	 * @param scanner
+	 */
+	public static void sortSubjectBySubjectTitle(Scanner scanner) {
+		ISubjectDAO subjectDAO = new SubjectDAO();	
+		List<Subject> subjects = subjectDAO.getSubjects();
+		System.out.println("search results for sort subjects by subject title: ");
+		if (!subjects.isEmpty()) {
+			List<Subject> sortedSubjects = subjects.stream().sorted(Comparator.comparing(Subject::getSubtitle))
+					.collect(Collectors.toList());
+			displaySubjects(sortedSubjects);
+		}
+
 	}
 
 }

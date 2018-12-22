@@ -30,4 +30,10 @@ public interface IBookDAO {
 	 */
 	public boolean deleteBook(long bookId);
 
+	/**
+	 * get books
+	 * @return
+	 */
+	public List<Book> getBooks();
+
 }

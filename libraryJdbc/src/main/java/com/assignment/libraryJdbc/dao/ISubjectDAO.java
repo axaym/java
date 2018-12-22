@@ -31,4 +31,10 @@ public interface ISubjectDAO {
 	 */
 	public boolean deleteSubject(long subjectId);
 
+	/**
+	 * get subjects
+	 * @return
+	 */
+	public List<Subject> getSubjects();
+
 }

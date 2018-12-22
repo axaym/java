@@ -2,9 +2,11 @@ package com.assignment.libraryJdbc;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import com.assignment.libraryJdbc.dao.BookDAO;
 import com.assignment.libraryJdbc.dao.IBookDAO;
@@ -24,13 +26,20 @@ public class BookProcessor extends Processor {
 		List<Book> books = bookDAO.searchBook(bookName);
 		System.out.println("search results for keyword: " + bookName);
 		if (!books.isEmpty()) {
-			for (Book book : books) {
-				System.out.println("***********************");
-				System.out.println(book.toString());
-				System.out.println("***********************");
-			}
+			displayBooks(books);
 		} else {
 			System.out.println("books not found with this title: " + bookName + ". Please modify your search.");
+		}
+	}
+
+	/**
+	 * @param books
+	 */
+	private static void displayBooks(List<Book> books) {
+		for (Book book : books) {
+			System.out.println("***********************");
+			System.out.println(book.toString());
+			System.out.println("***********************");
 		}
 	}
 
@@ -88,6 +97,26 @@ public class BookProcessor extends Processor {
 			System.out.println("No book found with the bookId: " + bookId + " for deletion.");
 		}
 
+	}
+
+	public static void sortBookByTitle(Scanner scanner) {
+		IBookDAO bookDAO = new BookDAO();
+		List<Book> books = bookDAO.getBooks();
+		System.out.println("sorted Books By Title: ");
+		if (!books.isEmpty()) {			
+			List<Book> sortedBooks = books.stream().sorted(Comparator.comparing(Book :: getTitle)).collect(Collectors.toList());
+			displayBooks(sortedBooks);
+		}		
+	}
+
+	public static void sortBookByPublishDate(Scanner scanner) {
+		IBookDAO bookDAO = new BookDAO();
+		List<Book> books = bookDAO.getBooks();
+		System.out.println("sorted Books By PublishDate: ");
+		if (!books.isEmpty()) {			
+			List<Book> sortedBooks = books.stream().sorted(Comparator.comparing(Book :: getPublishDate)).collect(Collectors.toList());
+			displayBooks(sortedBooks);
+		}	
 	}
 
 }
