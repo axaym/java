@@ -13,6 +13,11 @@ import com.assignment.libraryJdbc.util.ConnectionFactory;
 
 public class BookDAO implements IBookDAO {
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.assignment.libraryJdbc.dao.IBookDAO#searchBook(java.lang.String)
+	 */
 	public List<Book> searchBook(String bookName) {
 		Connection connection = ConnectionFactory.getConnection();
 		List<Book> books = new ArrayList<Book>();
@@ -37,16 +42,23 @@ public class BookDAO implements IBookDAO {
 		return books;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see
+	 * com.assignment.libraryJdbc.dao.IBookDAO#addBook(com.assignment.libraryJdbc.
+	 * entities.Book)
+	 */
 	public boolean addBook(Book book) {
 		Connection connection = ConnectionFactory.getConnection();
 		try {
-			PreparedStatement ps = connection.prepareStatement("INSERT INTO book "
-					+ "(title,price,volume,publish_date,subject_id) " + "VALUES (?, ?, ?, ?, ?)");
+			PreparedStatement ps = connection.prepareStatement(
+					"INSERT INTO book " + "(title,price,volume,publish_date,subject_id) " + "VALUES (?, ?, ?, ?, ?)");
 			ps.setString(1, book.getTitle());
 			ps.setDouble(2, book.getPrice());
 			ps.setInt(3, book.getVolume());
-			ps.setDate(4,  new Date(book.getPublishDate().getTime()));
-			ps.setLong(5,  book.getSubjectId());
+			ps.setDate(4, new Date(book.getPublishDate().getTime()));
+			ps.setLong(5, book.getSubjectId());
 
 			int i = ps.executeUpdate();
 			if (i == 1) {
@@ -60,6 +72,11 @@ public class BookDAO implements IBookDAO {
 		return false;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see com.assignment.libraryJdbc.dao.IBookDAO#deleteBook(long)
+	 */
 	public boolean deleteBook(long bookId) {
 		Connection connection = ConnectionFactory.getConnection();
 		try {

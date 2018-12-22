@@ -6,13 +6,11 @@ import java.util.Scanner;
  * library app to perform various operations on book and subject
  *
  */
-public class App 
-{
-    public static void main( String[] args )
-    {    	
-    	Scanner scanner = new Scanner(System.in);
-    	getUserInput(scanner);    	
-    }
+public class App {
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		getUserInput(scanner);
+	}
 
 	/**
 	 * @param scanner
@@ -20,14 +18,13 @@ public class App
 	private static void getUserInput(Scanner scanner) {
 		displaySelections();
 		int selection = 99;
-		if(!scanner.hasNextInt()) {
+		if (!scanner.hasNextInt()) {
 			selection = 99;
-		}
-		else {
+		} else {
 			selection = scanner.nextInt();
 		}
-    	switch (selection) {
-		case 1:			
+		switch (selection) {
+		case 1:
 			SubjectProcessor.addSubject(scanner);
 			getUserInput(scanner);
 			break;
@@ -68,12 +65,7 @@ public class App
 			scanner.close();
 			break;
 		}
-    	
-	}
 
-	private static void tryAgain(Scanner scanner) {
-		scanner.nextInt();
-		
 	}
 
 	/**
@@ -82,13 +74,13 @@ public class App
 	private static void displaySelections() {
 		System.out.println("****************************************************");
 		System.out.println("Please enter appropriate number to choose an option:");
-    	System.out.println("Press 1 to Add a Subject");
-    	System.out.println("Press 2 to Add a Book");
-    	System.out.println("Press 3 to Delete a Subject");
-    	System.out.println("Press 4 to Delete a book");
-    	System.out.println("Press 5 to Search for a book");
-    	System.out.println("Press 6 to Search for a subject");
-    	System.out.println("Press 7 to Exit");
-    	System.out.println("****************************************************");
+		System.out.println("Press 1 to Add a Subject");
+		System.out.println("Press 2 to Add a Book");
+		System.out.println("Press 3 to Delete a Subject");
+		System.out.println("Press 4 to Delete a book");
+		System.out.println("Press 5 to Search for a book");
+		System.out.println("Press 6 to Search for a subject");
+		System.out.println("Press 7 to Exit");
+		System.out.println("****************************************************");
 	}
 }

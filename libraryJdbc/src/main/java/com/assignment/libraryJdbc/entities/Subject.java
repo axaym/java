@@ -52,14 +52,8 @@ public class Subject implements Serializable {
 
 	@Override
 	public String toString() {
-		String booksStr = "\nbookIds: ";
-		for (Book book : references) {
-			booksStr += book.getBookId();
-			booksStr += "\n";
-		}
-		return "subtitle:" + subtitle + "\ndurationInHours: " 
-			+ durationInHours + "\nsubjectId: " + subjectId
-				+ booksStr;
+		return "subtitle: " + subtitle + "\ndurationInHours: " 
+			+ durationInHours + "\nsubjectId: " + subjectId;
 	}
 
 }
