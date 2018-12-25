@@ -1,0 +1,31 @@
+<div class="col-xs-12">
+    <h1>Experience</h1>
+    <app-experience-form (itemAdded)="addExperienceItem($event)"></app-experience-form>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef> X </mat-header-cell>
+            <mat-cell *matCellDef="let element">
+                <button mat-button (click)="removeItem(element)">X</button>
+            </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="company">
+            <th mat-header-cell *matHeaderCellDef> Name of the Company </th>
+            <td mat-cell *matCellDef="let element"> {{element.company}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="designation">
+            <th mat-header-cell *matHeaderCellDef> Designation </th>
+            <td mat-cell *matCellDef="let element"> {{element.designation}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="duration">
+            <th mat-header-cell *matHeaderCellDef> Duration(Years) </th>
+            <td mat-cell *matCellDef="let element"> {{element.duration}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

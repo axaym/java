@@ -1,0 +1,28 @@
+<div class="col-xs-12">
+  <h1>Profile Highlights</h1>
+  <h2>EDUCATION</h2>
+  <profile-highlight-form (itemAdded)="addProfileItem($event)"></profile-highlight-form>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef> X </mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <button mat-button (click)="removeItem(element)">X</button>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="skill">
+      <th mat-header-cell *matHeaderCellDef> Skill </th>
+      <td mat-cell *matCellDef="let element"> {{element.skill}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="detail">
+      <th mat-header-cell *matHeaderCellDef> Detail </th>
+      <td mat-cell *matCellDef="let element"> {{element.detail}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+</div>

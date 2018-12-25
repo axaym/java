@@ -1,0 +1,18 @@
+<form [formGroup]="profileForm" (ngSubmit)="addItem()">
+
+
+  <div class="form-group">
+    <label>
+      Skill:
+      <input type="text" formControlName="skill" required>
+    </label>
+  </div>
+
+  <div class="form-group">
+    <label>
+      Detail:
+      <input type="text" formControlName="detail" required>
+    </label>
+  </div>
+  <button type="submit">Add</button>
+</form>

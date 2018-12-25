@@ -1,0 +1,74 @@
+<div class="col-xs-12">
+  <h1>Projects</h1>
+  <app-project-form (itemAdded)="addProject($event)"></app-project-form>
+
+  <div #projects>
+      <div #project1>
+
+          <h2>PROJECT PROFILE</h2>
+          <form>
+              <div class="form-group col-sm-12 btn btn-primary">
+                  <input type="submit" class="form-control " value="Remove" 
+                  (click)="removeProject($event, project1)">
+              </div>
+          </form>
+          <table #table class="table table-bordered">
+              <tr>
+                  <td>Project Title</td>
+                  <td>My StateStreet</td>
+              </tr>
+              <tr>
+                  <td>Duration</td>
+                  <td>01/05/2015 – till now</td>
+              </tr>
+              <tr>
+                  <td>Location</td>
+                  <td>Quincy, MA, USA</td>
+              </tr>
+              <tr>
+                  <td>Operating Systems</td>
+                  <td>Windows XP, Unix</td>
+              </tr>
+              <tr>
+                  <td>Programming languages, Environment</td>
+                  <td>ReactJS, HTML5, Java, Flex 4.6, Flash builder 4, Cairngorm architecture, Eclipse, Oracle,
+                      Maven</td>
+              </tr>
+              <tr>
+                  <td>Client</td>
+                  <td>State Street</td>
+              </tr>
+          </table>
+      </div>
+  </div>
+  <h2>PROJECT DESCRIPTION:</h2>
+  <p>My State Street is a web based near real time dashboard application provides status updates to clients for
+      Trading, Reconciliation and various reporting.
+      There are multiple high-level modules with multiple sub modules as listed: Trade management Dashboard,
+      Investor Services dashboard, Received Trade Dashboard, Regulatory Resource Center, Report Access Inbox,
+      Report Center, Interactive Views.
+  </p>
+  <h2>CLIENT DESCRIPTION:</h2>
+  <p>State Street Corporation, known as State Street, is a US-based international financial services holding
+      company. State Street was founded in 1792 and is the second oldest financial institution in the United
+      States.</p>
+  <h2>ROLES AND RESPONSIBILITIES:</h2>
+  <p>Mr. Axay Mehta was working as onsite Team Lead and a full stack developer. He is responsible for planning,
+      estimation, meeting the timelines and quality expectations, smooth functioning of project, co-ordination
+      with offshore technical team. Project weekly work status reporting to client. Project monitoring and
+      control throughout the project life cycle. Code quality review for the work done by team and providing
+      feedback. Application deployment, testing and application production support. Maintaining the coding
+      guidelines and standards for team.
+      He was directly communicating with Business users with ease because of his strong domain knowledge.</p>
+
+  <h2>TEHNOLOGIES USED IN THIS PROJECT:</h2>
+  <p>He has worked on different modules like Trade management, Fund of hedge funds dashboards using Adobe Flex &
+      Cairngorm architecture user interface technologies. He worked in ReactJS, HTML5 technologies to create
+      various user interfaces and worked on Java/J2EE technologies for creating RESTful web services for
+      regulatory Resource Center module. He worked on Java/J2EE, Spring MVC, Maven & Oracle database technologies
+      to create RESTful web services during migration of existing Flex based UI to ReactJS, HTML5 based UI. He is
+      following Cognizant standards to maintain quality of deliverables.</p>
+
+  <h2>DURATION OF THE PROJECT:</h2>
+  <p> 3 Years & 2 Months</p>
+</div>
