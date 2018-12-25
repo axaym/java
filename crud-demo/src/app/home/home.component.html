@@ -1,0 +1,14 @@
+<div>
+  <p>Click on each button to perform crud operation and see json response</p>
+</div>
+<div>
+  <button (click)="onGetUsersClick()">GetUsers(GET - /posts)</button>
+  <button (click)="onGetUserClick()">GetUser(GET - /posts/1)</button>
+  <button (click)="onPostUserClick()">CreateUser(POST - /posts)</button>
+  <button (click)="onUpdateUserClick()">UpdateUser(PUT - /posts/1)</button>
+  <button (click)="onDeleteUserClick()">DeleteUser(DELETE - /posts/1)</button>
+</div>
+
+<div>
+  <p>{{data}}</p>
+</div>
