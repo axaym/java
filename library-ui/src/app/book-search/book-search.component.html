@@ -1,0 +1,9 @@
+<form [formGroup]="bookForm" (ngSubmit)="searchItem()">    
+      <div class="form-group">
+        <label>
+          Type title:
+          <input type="text" formControlName="title" required>
+        </label>
+      </div>
+      <button type="submit">Search</button>
+    </form>

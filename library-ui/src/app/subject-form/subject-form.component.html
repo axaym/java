@@ -1,0 +1,17 @@
+<form [formGroup]="subjectForm" (ngSubmit)="addItem()">
+    
+      <div class="form-group">
+        <label>
+          Sub Title:
+          <input type="text" formControlName="subtitle" required>
+        </label>
+      </div>
+      <div class="form-group">
+        <label>
+          Duration:
+          <input type="text" formControlName="durationInHours" required>
+        </label>
+      </div>
+    
+      <button type="submit">Add</button>
+    </form>
