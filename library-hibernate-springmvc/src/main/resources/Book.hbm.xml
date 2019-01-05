@@ -6,10 +6,10 @@
             <column name="book_id"/>
             <generator class="identity"/>
         </id>
-        <many-to-one class="com.assignment.library.entities.Subject" embed-xml="true" fetch="select" insert="true" 
+       <!--  <many-to-one class="com.assignment.library.entities.Subject" embed-xml="true" fetch="select" insert="true" 
         	name="subject" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="subject_id" not-null="true"/>
-        </many-to-one>
+        </many-to-one> -->
         <property generated="never" lazy="false" name="title" optimistic-lock="true" type="string" unique="false">
             <column length="100" name="title" not-null="true"/>
         </property>
@@ -21,6 +21,9 @@
         </property>
         <property generated="never" lazy="false" name="publishDate" optimistic-lock="true" type="date" unique="false">
             <column length="10" name="publish_date" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="subjectId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column length="100" name="subject_id" not-null="true"/>
         </property>
     </class>
 </hibernate-mapping>

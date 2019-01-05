@@ -10,14 +10,14 @@
         <property generated="never" lazy="false" name="subtitle" optimistic-lock="true" type="string" unique="false">
             <column length="100" name="subtitle" not-null="true"/>
         </property>
-        <property generated="never" lazy="false" name="duration" optimistic-lock="true" type="int" unique="false">
+        <property generated="never" lazy="false" name="durationInHours" optimistic-lock="true" type="int" unique="false">
             <column name="duration" not-null="true"/>
         </property>
-        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="books" optimistic-lock="true" sort="unsorted" table="book">
+        <!-- <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="books" optimistic-lock="true" sort="unsorted" table="book">
             <key on-delete="noaction">
                 <column name="subject_id" not-null="true"/>
             </key>
             <one-to-many class="com.assignment.library.entities.Book" embed-xml="true" not-found="exception"/>
-        </set>
+        </set> -->
     </class>
 </hibernate-mapping>

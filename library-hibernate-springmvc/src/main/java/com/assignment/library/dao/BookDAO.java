@@ -119,15 +119,17 @@ public class BookDAO implements IBookDAO {
 		System.out.println("getting Book by partial Title: " + partialTitle);
 		try {
 			Session session = sessionFactory.getCurrentSession();
-		    
+			
 			CriteriaBuilder builder = session.
 					getCriteriaBuilder();
 			
 			CriteriaQuery<Book> query = builder.createQuery(Book.class);
 			Root<Book> root = query.from(Book.class);
 			query.select(root).where(builder.like(root.get("title"), "%"+partialTitle+"%"));
-			Query<Book> q = sessionFactory.getCurrentSession().createQuery(query);
+			Query<Book> q = sessionFactory.getCurrentSession().
+					createQuery("select b from Book b where b.title like :title").setParameter("title", "%"+partialTitle+"%");
 			List<Book> books = q.getResultList();
+			//"select b from Book b join Subject s on s.subjectId = b.subjectId where b.title like :title"
 			
 			if (books == null) {
 				System.out.println("get successful, no instance found");

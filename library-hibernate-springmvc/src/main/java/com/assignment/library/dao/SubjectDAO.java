@@ -53,8 +53,7 @@ public class SubjectDAO implements ISubjectDAO {
 	public void deleteById(Integer subjectId) {
 		System.out.println("deleting Subject instance by SubjectId");
 		Session session = sessionFactory.getCurrentSession();
-		try {
-			
+		try {			
 			
 			session.createQuery("delete from Subject where subject_id = :id")
 			  .setParameter("id", subjectId)
@@ -115,9 +114,10 @@ public class SubjectDAO implements ISubjectDAO {
 					getCriteriaBuilder();
 			
 			CriteriaQuery<Subject> query = builder.createQuery(Subject.class);
-			Root<Subject> root = query.from(Subject.class);
-			query.select(root).where(builder.like(root.get("subtitle"), "%"+partialTitle+"%"));
-			Query<Subject> q = sessionFactory.getCurrentSession().createQuery(query);
+			//Root<Subject> root = query.from(Subject.class);
+			//query.select(root).where(builder.like(root.get("subtitle"), "%"+partialTitle+"%"));
+			Query<Subject> q = sessionFactory.getCurrentSession().createQuery("select s from Subject s where s.subtitle like :subtitle").
+					setParameter("subtitle", "%"+partialTitle+"%");
 			List<Subject> Subjects = q.getResultList();
 			if (Subjects == null) {
 				System.out.println("get successful, no instance found");

@@ -2,7 +2,6 @@ package com.assignment.library.entities;
 // default package
 // Generated Dec 23, 2018 8:35:19 PM by Hibernate Tools 5.2.10.Final
 
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -16,21 +15,21 @@ public class Subject implements java.io.Serializable {
 	private static final long serialVersionUID = -8128804572167274877L;
 	private Integer subjectId;
 	private String subtitle;
-	private int duration;
-	private Set books = new HashSet(0);
+	private int durationInHours;
+	//private Set books = new HashSet(0);
 
 	public Subject() {
 	}
 
 	public Subject(String subtitle, int duration) {
 		this.subtitle = subtitle;
-		this.duration = duration;
+		this.durationInHours = duration;
 	}
 
-	public Subject(String subtitle, int duration, Set books) {
+	public Subject(String subtitle, int durationInHours, Set books) {
 		this.subtitle = subtitle;
-		this.duration = duration;
-		this.books = books;
+		this.durationInHours = durationInHours;
+		//this.books = books;
 	}
 
 	public Integer getSubjectId() {
@@ -49,25 +48,27 @@ public class Subject implements java.io.Serializable {
 		this.subtitle = subtitle;
 	}
 
-	public int getDuration() {
-		return this.duration;
-	}
+	
 
-	public void setDuration(int duration) {
-		this.duration = duration;
-	}
-
-	public Set getBooks() {
+	/*public Set getBooks() {
 		return this.books;
 	}
 
 	public void setBooks(Set books) {
 		this.books = books;
+	}*/
+
+	public int getDurationInHours() {
+		return durationInHours;
+	}
+
+	public void setDurationInHours(int durationInHours) {
+		this.durationInHours = durationInHours;
 	}
 
 	@Override
 	public String toString() {
 		return "subtitle: " + subtitle + "\ndurationInHours: " 
-			+ duration + "\nsubjectId: " + subjectId;
+			+ durationInHours + "\nsubjectId: " + subjectId;
 	}
 }

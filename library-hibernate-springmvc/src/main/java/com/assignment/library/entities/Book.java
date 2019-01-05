@@ -16,6 +16,7 @@ public class Book implements java.io.Serializable {
 	private static final long serialVersionUID = -9189279053232964271L;
 	private Integer bookId;
 	private Integer subjectId;
+	
 	private Subject subject;
 	private String title;
 	private BigDecimal price;
@@ -25,7 +26,8 @@ public class Book implements java.io.Serializable {
 	public Book() {
 	}
 
-	public Book(Subject subject, String title, BigDecimal price, int volume, Date publishDate) {
+	public Book(Integer subjectId, Subject subject, String title, BigDecimal price, int volume, Date publishDate) {
+		this.subjectId = subjectId;
 		this.subject = subject;
 		this.title = title;
 		this.price = price;
