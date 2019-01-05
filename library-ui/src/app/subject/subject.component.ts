@@ -31,14 +31,14 @@ export class SubjectComponent implements OnInit {
       subtitle: event.subtitle, durationInHours: event.durationInHours
     }).
       then(
-      res => this.showAlert("add status: " + res.body)
+      res => this.showAlert("add status: " + res._body)
       );
   }
 
   removeItem(row) {
     this.subjectService.deleteSubject({ subjectId: row.subjectId }).
       then(
-      res => this.showAlert("delete status: " + res.body)
+      res => this.showAlert("delete status: " + res._body)
       );
   }
 

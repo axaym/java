@@ -3,6 +3,6 @@ export class BookObject {
     public title: string;
     public price: number;
     public volume:number;
-    public publishDate: string;
+    public publishDate: number;
     public subjectId: string;
 }

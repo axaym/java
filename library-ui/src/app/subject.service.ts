@@ -13,11 +13,11 @@ export class SubjectService {
   
     async deleteSubject(subject): Promise<any> {
       return await this.http.post('http://localhost:8081/library/subject/delete', subject)
-        .toPromise().then(res => res.json());
+        .toPromise().then(res => res);
     }
   
     async addSubject(subject): Promise<any> {
       return await this.http.post('http://localhost:8081/library/subject/add', subject)
-        .toPromise().then(res => res.json());
+        .toPromise().then(res => res);
     }
 }

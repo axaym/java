@@ -27,7 +27,7 @@ export class BookFormComponent implements OnInit {
   addItem() {
     let p:BookObject = new BookObject();
     p.title = this.bookForm.value.title;
-    p.publishDate = this.bookForm.value.publishDate;
+    p.publishDate = new Date(this.bookForm.value.publishDate).getTime();
     p.price = this.bookForm.value.price;
     p.volume = this.bookForm.value.volume;
     p.subjectId = this.bookForm.value.subjectId;

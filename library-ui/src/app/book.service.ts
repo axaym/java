@@ -13,12 +13,12 @@ export class BookService {
 
   async deleteBook(book): Promise<any> {
     return await this.http.post('http://localhost:8081/library/book/delete', book)
-      .toPromise().then(res => res.json());
+      .toPromise().then(res => res);
   }
 
   async addBook(book): Promise<any> {
     return await this.http.post('http://localhost:8081/library/book/add', book)
-      .toPromise().then(res => res.json());
+      .toPromise().then(res => res);
   }
 
 }

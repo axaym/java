@@ -32,14 +32,14 @@ export class BookComponent implements OnInit {
       price: event.price, subjectId: event.subjectId, volume: event.volume
     }).
       then(
-      res => this.showAlert("add status: "+res.body)
+      res => this.showAlert("add status: "+res._body)
       );
   }
 
   removeItem(row) {
     this.bookService.deleteBook({ bookId: row.bookId }).
       then(
-      res => this.showAlert("delete status: "+res.body)
+      res => this.showAlert("delete status: "+res._body)
       );
   }
 
