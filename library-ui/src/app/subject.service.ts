@@ -10,7 +10,13 @@ export class SubjectService {
       return await this.http.post('http://localhost:8081/library/subject/search', subject)
         .toPromise().then(res => res.json());
     }
+
+    async searchSubjectByDuration(subject): Promise<any> {
+      return await this.http.post('http://localhost:8081/library/subject/search/duration', subject)
+        .toPromise().then(res => res.json());
+    }
   
+    
     async deleteSubject(subject): Promise<any> {
       return await this.http.post('http://localhost:8081/library/subject/delete', subject)
         .toPromise().then(res => res);

@@ -1,6 +1,7 @@
 <div class="col-xs-12">
     <h1>Book</h1>
     <app-book-form (itemAdded)="addBookItem($event)"></app-book-form>
+    <app-book-title-search (itemSearch)="searchByTitle($event)"></app-book-title-search>
     <app-book-search (itemSearch)="searchBookItem($event)"></app-book-search>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 

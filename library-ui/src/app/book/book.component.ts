@@ -26,6 +26,14 @@ export class BookComponent implements OnInit {
       );
   }
 
+  searchByTitle(event) {
+    let book = { title: event.title };
+    this.bookService.searchBooksByTitle(book).
+      then(
+      res => this.dataSource = new MatTableDataSource(res)
+      );
+  }
+  
   addBookItem(event) {
     this.bookService.addBook({
       title: event.title, publishDate: event.publishDate,

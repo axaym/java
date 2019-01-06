@@ -11,6 +11,11 @@ export class BookService {
       .toPromise().then(res => res.json());
   }
 
+  async searchBooksByTitle(book): Promise<any> {
+    return await this.http.post('http://localhost:8081/library/book/search/title', book)
+      .toPromise().then(res => res.json());
+  }
+
   async deleteBook(book): Promise<any> {
     return await this.http.post('http://localhost:8081/library/book/delete', book)
       .toPromise().then(res => res);

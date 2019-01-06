@@ -26,6 +26,14 @@ export class SubjectComponent implements OnInit {
       );
   }
 
+  searchSubjectByDuration(event) {
+    let subject = { durationInHours: event.durationInHours };
+    this.subjectService.searchSubjectByDuration(subject).
+      then(
+      res => this.dataSource = new MatTableDataSource(res)
+      );
+  }
+  
   addSubjectItem(event) {
     this.subjectService.addSubject({
       subtitle: event.subtitle, durationInHours: event.durationInHours

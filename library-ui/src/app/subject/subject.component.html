@@ -1,6 +1,7 @@
 <div class="col-xs-12">
     <h1>Subject</h1>
     <app-subject-form (itemAdded)="addSubjectItem($event)"></app-subject-form>
+    <app-subject-search-duration (itemSearch)="searchSubjectByDuration($event)"></app-subject-search-duration>
     <app-subject-search (itemSearch)="searchSubjectItem($event)"></app-subject-search>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
