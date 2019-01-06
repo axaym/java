@@ -23,4 +23,10 @@ public interface SubjectJpaRepository extends JpaRepository<Subject, Integer> {
 	 * @return
 	 */
 	public List<Subject> findBySubtitleLike(String subtitle);
+	
+	/**
+	 * @param durationInHours
+	 * @return
+	 */
+	public List<Subject> findByDurationInHours(int durationInHours); 
 }

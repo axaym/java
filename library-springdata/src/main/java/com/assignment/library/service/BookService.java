@@ -52,4 +52,9 @@ public class BookService implements IBookService {
 		return "success";
 	}
 
+	@Override
+	public List<Book> searchBookByTitleEqual(Book book) {
+		return bookJpaRepository.findByTitle(book.getTitle());
+	}
+
 }

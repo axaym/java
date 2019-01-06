@@ -11,6 +11,12 @@ public interface IBookService {
 	 * @return
 	 */
 	public List<Book> searchBook(Book book);
+	
+	/**
+	 * @param book
+	 * @return
+	 */
+	public List<Book> searchBookByTitleEqual(Book book);
 
 	/**
 	 * @param book

@@ -34,6 +34,15 @@ public class BookController {
 	 * @param book
 	 * @return
 	 */
+	@PostMapping("/search/title")
+    public @ResponseBody List<Book> searchBooksByTitle(@RequestBody Book book) {
+        return bookService.searchBookByTitleEqual(book);
+    }
+	
+	/**
+	 * @param book
+	 * @return
+	 */
 	@PostMapping("/add")
     public @ResponseBody String addBook(@RequestBody Book book) {
         return bookService.addBook(book);

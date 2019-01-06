@@ -11,6 +11,12 @@ public interface ISubjectService {
 	 * @return
 	 */
 	public List<Subject> searchSubject(Subject subject);
+	
+	/**
+	 * @param subject
+	 * @return
+	 */
+	public List<Subject> searchSubjectByDurationEqual(Subject subject);
 
 	/**
 	 * @param subject

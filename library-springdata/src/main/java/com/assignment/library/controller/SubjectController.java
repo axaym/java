@@ -34,6 +34,15 @@ public class SubjectController {
 	 * @param subject
 	 * @return
 	 */
+	@PostMapping("/search/duration")
+    public @ResponseBody List<Subject> searchSubjectsByDuration(@RequestBody Subject subject) {
+        return subjectService.searchSubjectByDurationEqual(subject);
+    }
+	
+	/**
+	 * @param subject
+	 * @return
+	 */
 	@PostMapping("/add")
     public @ResponseBody String addSubject(@RequestBody Subject subject) {
         return subjectService.addSubject(subject);

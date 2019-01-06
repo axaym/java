@@ -52,4 +52,9 @@ public class SubjectService implements ISubjectService {
 		return "success";
 	}
 
+	@Override
+	public List<Subject> searchSubjectByDurationEqual(Subject subject) {
+		return subjectJpaRepository.findByDurationInHours(subject.getDurationInHours());
+	}
+
 }
