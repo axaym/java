@@ -13,14 +13,32 @@ export class BookComponent implements OnInit {
   displayedColumns: string[] = ['bookId', 'title',
      'price', 'volume', "publishDate", "subjectId"];
   @Input() dataSource;
+  @Input() selectedRow;
   constructor(private bookService: BookService) { }
 
   ngOnInit() {
+    this.bookService.getAllBooks().
+    then(
+    res => this.dataSource = new MatTableDataSource(res)
+    );
+  }
+
+  selectRow(row, event) {
+    //pass selected row to form for update
+    this.selectedRow = row;
   }
 
   searchBookItem(event) {
     let book = { title: event.title };
     this.bookService.searchBooks(book).
+      then(
+      res => this.dataSource = new MatTableDataSource(res)
+      );
+  }
+
+  searchBookById(event) {
+    //let book = { title: event.title };
+    this.bookService.getBookById(event.bookId).
       then(
       res => this.dataSource = new MatTableDataSource(res)
       );
@@ -41,6 +59,17 @@ export class BookComponent implements OnInit {
     }).
       then(
       res => this.showAlert("add status: "+res._body)
+      );
+  }
+
+  updateBookItem(event) {
+    this.bookService.updateBook({
+      bookId: event.bookId,
+      title: event.title, publishDate: event.publishDate,
+      price: event.price, subjectId: event.subjectId, volume: event.volume
+    }).
+      then(
+      res => this.showAlert("update status: "+res._body)
       );
   }
 

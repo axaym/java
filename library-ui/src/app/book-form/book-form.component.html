@@ -1,35 +1,42 @@
-<form [formGroup]="bookForm" (ngSubmit)="addItem()">
+<form [formGroup]="bookForm" (ngSubmit)="addOrUpdateItem($event)">
     
-      <div class="form-group">
+  <div class="form-group">
+    <label>
+      Book Id:
+      <input type="text" formControlName="bookId" disabled 
+       value="{{selectedRow && selectedRow.bookId || ''}}" required>
+    </label>
+  </div>
+  <div class="form-group">
         <label>
           Title:
-          <input type="text" formControlName="title" required>
+          <input type="text" formControlName="title" value="{{selectedRow && selectedRow.title || ''}}" required>
         </label>
       </div>
       <div class="form-group">
         <label>
           Price:
-          <input type="text" formControlName="price" required>
+          <input type="text" formControlName="price" value="{{selectedRow && selectedRow.price || ''}}" required>
         </label>
       </div>
       <div class="form-group">
         <label>
           Volume:
-          <input type="text" formControlName="volume" required>
+          <input type="text" formControlName="volume" value="{{selectedRow && selectedRow.volume || ''}}" required>
         </label>
       </div>
       <div class="form-group">
           <label>
             Publish Date:
-            <input type="date" formControlName="publishDate" required>
+            <input type="date" formControlName="publishDate" value="{{selectedRow && (selectedRow.publishDate | date: 'yyyy-MM-dd') || ''}}" required>
           </label>
         </div>
         <div class="form-group">
             <label>
               Subject Id:
-              <input type="text" formControlName="subjectId" required>
+              <input type="text" formControlName="subjectId" value="{{selectedRow && selectedRow.subjectId || ''}}" required>
             </label>
           </div>
     
-      <button type="submit">Add</button>
+      <button type="submit">Add / Update</button>
     </form>

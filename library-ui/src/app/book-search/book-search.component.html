@@ -1,8 +1,8 @@
 <form [formGroup]="bookForm" (ngSubmit)="searchItem()">    
       <div class="form-group">
         <label>
-          Search by title (like):
-          <input type="text" formControlName="title" required>
+          Search by bookId:
+          <input type="text" formControlName="bookId" required>
         </label>
       </div>
       <button type="submit">Search</button>

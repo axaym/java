@@ -11,7 +11,7 @@ import { EventEmitter } from '@angular/core';
 export class BookSearchComponent implements OnInit {
 
   bookForm = this.fb.group({
-    title: ['']
+    bookId: ['']
   });
 
   @Output() itemSearch = new EventEmitter<BookObject>();
@@ -22,7 +22,7 @@ export class BookSearchComponent implements OnInit {
 
   searchItem() {
     let p:BookObject = new BookObject();
-    p.title = this.bookForm.value.title;
+    p.bookId = this.bookForm.value.bookId;
    
     this.itemSearch.emit(p);
   }

@@ -1,5 +1,5 @@
 export class BookObject {
-    public bookId: string;
+    public bookId: number;
     public title: string;
     public price: number;
     public volume:number;
