@@ -57,4 +57,20 @@ public class BookService implements IBookService {
 		return bookJpaRepository.findByTitle(book.getTitle());
 	}
 
+	@Override
+	public List<Book> getAllBooks() {
+		return bookJpaRepository.findAll();
+	}
+
+	@Override
+	public List<Book> getBookById(Integer bookId) {
+		return bookJpaRepository.findByBookId(bookId);
+	}
+
+	@Override
+	public String updateBook(Book book) {
+		bookJpaRepository.saveAndFlush(book);
+		return "success";
+	}
+
 }

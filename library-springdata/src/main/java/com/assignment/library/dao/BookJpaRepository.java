@@ -24,5 +24,7 @@ public interface BookJpaRepository extends JpaRepository<Book, Integer> {
 	public List<Book> findByTitleLike(String title);
 	
 	public List<Book> findByTitle(String title);
+
+	public List<Book> findByBookId(Integer bookId);
 	
 }
