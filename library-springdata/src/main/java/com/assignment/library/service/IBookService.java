@@ -42,4 +42,6 @@ public interface IBookService {
 
 	public String updateBook(Book book);
 
+	public long getBookCount();
+
 }

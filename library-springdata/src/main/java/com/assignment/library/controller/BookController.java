@@ -43,6 +43,11 @@ public class BookController {
         return bookService.getBookById(bookId);
     }
 	
+	@GetMapping("/count")
+    public @ResponseBody long getBookCount() {
+        return bookService.getBookCount();
+    }
+	
 	@PutMapping("/update")
     public @ResponseBody String updateBook(@RequestBody Book book) {
         return bookService.updateBook(book);
