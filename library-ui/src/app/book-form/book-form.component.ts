@@ -40,6 +40,9 @@ export class BookFormComponent implements OnInit {
       if (this.bookForm.controls.title.touched) {
         p.title = this.bookForm.value.title;
       }
+      if (this.bookForm.controls.bookId.touched) {
+        p.bookId = this.bookForm.value.bookId;
+      }
       if (this.bookForm.controls.price.touched) {
         p.price = this.bookForm.value.price;
       }

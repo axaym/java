@@ -21,6 +21,11 @@ export class BookService {
       .toPromise().then(res => res.json());
   }
 
+  async getBookCount(): Promise<any> {
+    return await this.http.get('http://localhost:8081/library/book/count')
+      .toPromise().then(res => res);
+  }
+
   async getAllBooks(): Promise<any> {
     return await this.http.get('http://localhost:8081/library/book/books')
       .toPromise().then(res => res.json());

@@ -1,5 +1,9 @@
 <div class="col-xs-12">
     <h1>Book</h1>
+    <div class="div-count">
+        <button (click)="getBookCount($event)">Get book count</button>
+        <label>{{count}}</label>
+    </div>
     <app-book-form (itemAdded)="addBookItem($event)"
         (itemUpdated)="updateBookItem($event)"
          [selectedRow]=selectedRow></app-book-form>

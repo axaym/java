@@ -78,6 +78,9 @@ nav {
     display: inline;
 }
 
+.div-count {
+    display: flex;
+}
 a {
     color:white;
     background-color:rgb(124, 139, 141);

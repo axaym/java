@@ -13,6 +13,7 @@ export class BookComponent implements OnInit {
   displayedColumns: string[] = ['bookId', 'title',
      'price', 'volume', "publishDate", "subjectId"];
   @Input() dataSource;
+  @Input() count;
   @Input() selectedRow;
   constructor(private bookService: BookService) { }
 
@@ -37,10 +38,16 @@ export class BookComponent implements OnInit {
   }
 
   searchBookById(event) {
-    //let book = { title: event.title };
     this.bookService.getBookById(event.bookId).
       then(
       res => this.dataSource = new MatTableDataSource(res)
+      );
+  }
+
+  getBookCount(event) {
+    this.bookService.getBookCount().
+      then(
+      res => this.count = res._body
       );
   }
 
