@@ -3,7 +3,6 @@ package com.assignment.library.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,8 +15,6 @@ import com.assignment.library.service.ISubjectService;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController("subjectController")
-@RequestMapping(value = "/subject")
-@Secured("hasRole('ROLE_PRIN')")
 public class SubjectController {
 
 	@Autowired
@@ -27,7 +24,7 @@ public class SubjectController {
 	 * @param subject
 	 * @return
 	 */
-	@PostMapping("/search")
+	@PostMapping("/subject/search")
     public @ResponseBody List<Subject> searchSubjects(@RequestBody Subject subject) {
         return subjectService.searchSubject(subject);
     }
@@ -36,7 +33,7 @@ public class SubjectController {
 	 * @param subject
 	 * @return
 	 */
-	@PostMapping("/search/duration")
+	@PostMapping("/subject/search/duration")
     public @ResponseBody List<Subject> searchSubjectsByDuration(@RequestBody Subject subject) {
         return subjectService.searchSubjectByDurationEqual(subject);
     }
@@ -45,7 +42,7 @@ public class SubjectController {
 	 * @param subject
 	 * @return
 	 */
-	@PostMapping("/add")
+	@PostMapping("/subject/add")
     public @ResponseBody String addSubject(@RequestBody Subject subject) {
         return subjectService.addSubject(subject);
     }
@@ -54,7 +51,7 @@ public class SubjectController {
 	 * @param subject
 	 * @return
 	 */
-	@PostMapping("/delete")
+	@PostMapping("/subject/delete")
     public @ResponseBody String deleteSubject(@RequestBody Subject subject) {
         return subjectService.deleteSubject(subject);
     }

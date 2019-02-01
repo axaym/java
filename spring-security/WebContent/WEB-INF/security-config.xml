@@ -10,28 +10,33 @@
 		http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<http auto-config="true" use-expressions="true" >
-		<!-- <intercept-url pattern="/subject/*"  
+	<http auto-config="true" use-expressions="true" >	
+		<intercept-url pattern="/subject/*"  
 			access="hasRole('ROLE_PRIN')" />
-		<intercept-url pattern="/book/search"
+		<intercept-url pattern="/book/*"
 			access="hasRole('ROLE_LIBRARIAN')" />
-		<intercept-url pattern="/book/books"
-			access="hasRole('ROLE_LIBRARIAN')" />
-		 -->
-		<intercept-url pattern="/**"
+		<intercept-url pattern="/user/*"  
+			access="permitAll" />		
+		<!-- <intercept-url pattern="/registration.html" access="permitAll"/> -->
+		<intercept-url pattern="/index.html"
 			access="hasAnyRole('ROLE_PRIN','ROLE_LIBRARIAN')" />
-		<http-basic />
+		<!-- <form-login login-page="/login.html"/> -->
+		<!-- <http-basic /> -->
+		<csrf disabled="true"/>
 	</http>
 	
-	<global-method-security secured-annotations="enabled"/>
+	<!-- <global-method-security secured-annotations="enabled"/> -->
 
 	<authentication-manager>
-		<authentication-provider>
+		<authentication-provider >
 			<password-encoder hash="bcrypt" />
 			<jdbc-user-service data-source-ref="dataSource" />
 		</authentication-provider>
 	</authentication-manager>
 
+	<!-- <b:bean id="userDetailsService"
+  		class="com.assignment.library.service.UserService"/> -->
+  
 	<b:bean id="dataSource"
 		class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">

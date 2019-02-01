@@ -3,6 +3,7 @@ package com.assignment.library.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.assignment.library.dao.AuthoritiesJpaRepository;
@@ -24,6 +25,8 @@ public class UserService implements IUsersService {
 	 */
 	@Override
 	public String addUser(Users user) {
+		String pass = new BCryptPasswordEncoder().encode(user.getPassword());
+		user.setPassword(pass);
 		Authorities auth = user.getAuthoritieses().iterator().next();
 		userJpaRepository.saveAndFlush(user);
 		authoritiesJpaRepository.saveAndFlush(auth);

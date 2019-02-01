@@ -3,7 +3,6 @@ package com.assignment.library.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,8 +18,6 @@ import com.assignment.library.service.IBookService;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController("bookController")
-@RequestMapping(value = "/book")
-@Secured("hasRole('ROLE_LIBRARIAN')")
 public class BookController {
 
 	@Autowired
@@ -30,29 +27,29 @@ public class BookController {
 	 * @param book
 	 * @return
 	 */
-	@PostMapping("/search")
+	@PostMapping("/book/search")
     public @ResponseBody List<Book> searchBooks(@RequestBody Book book) {
         return bookService.searchBook(book);
     }
 	
-	@GetMapping("/books")
+	@GetMapping("/book/books")
     public @ResponseBody List<Book> getAllBooks() {
         return bookService.getAllBooks();        
     }
 	
-	@GetMapping("/{bookId}")
+	@GetMapping("/book/{bookId}")
     public @ResponseBody List<Book> getBookById(@PathVariable Integer bookId) {
 		/*String pass = new BCryptPasswordEncoder().encode("pass");
 		System.out.println("pass: "+pass);*/
         return bookService.getBookById(bookId);
     }
 	
-	@GetMapping("/count")
+	@GetMapping("/book/count")
     public @ResponseBody long getBookCount() {
         return bookService.getBookCount();
     }
 	
-	@PutMapping("/update")
+	@PutMapping("/book/update")
     public @ResponseBody String updateBook(@RequestBody Book book) {
         return bookService.updateBook(book);
     }
@@ -61,7 +58,7 @@ public class BookController {
 	 * @param book
 	 * @return
 	 */
-	@PostMapping("/search/title")
+	@PostMapping("/book/search/title")
     public @ResponseBody List<Book> searchBooksByTitle(@RequestBody Book book) {
         return bookService.searchBookByTitleEqual(book);
     }
@@ -70,7 +67,7 @@ public class BookController {
 	 * @param book
 	 * @return
 	 */
-	@PostMapping("/add")
+	@PostMapping("/book/add")
     public @ResponseBody String addBook(@RequestBody Book book) {
         return bookService.addBook(book);
     }
@@ -79,7 +76,7 @@ public class BookController {
 	 * @param book
 	 * @return
 	 */
-	@PostMapping("/delete")
+	@PostMapping("/book/delete")
     public @ResponseBody String deleteBook(@RequestBody Book book) {
         return bookService.deleteBook(book);
     }
