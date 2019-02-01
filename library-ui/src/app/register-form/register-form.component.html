@@ -1,0 +1,25 @@
+<div class="col-xs-12">
+  <h1>Register</h1>
+  <form [formGroup]="registerForm" (ngSubmit)="register($event)">
+<div class="form-group">
+      <label>
+        User Name:
+        <input type="text" formControlName="username" 
+          required>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Password:
+        <input type="password" formControlName="password" required>
+      </label>
+    </div>
+    <div class="form-group">
+      <label>
+        Role:
+        <input type="text" formControlName="role" required>
+      </label>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+</div>

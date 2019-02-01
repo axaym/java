@@ -13,11 +13,13 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { BookService } from './book.service';
 import { SubjectService } from './subject.service';
+import { UserService } from './user.service';
 import { BookSearchComponent } from './book-search/book-search.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { SubjectSearchComponent } from './subject-search/subject-search.component';
 import { BookSearchTitleComponent } from './book-search-title/book-search-title.component';
 import { SubjectSearchDurationComponent } from './subject-search-duration/subject-search-duration.component';
+import { RegisterFormComponent } from './register-form/register-form.component';
 
 
 @NgModule({
@@ -33,7 +35,7 @@ import { SubjectSearchDurationComponent } from './subject-search-duration/subjec
     SubjectSearchComponent,
     BookSearchTitleComponent,
     SubjectSearchDurationComponent,
-    
+    RegisterFormComponent,    
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,7 @@ import { SubjectSearchDurationComponent } from './subject-search-duration/subjec
     ReactiveFormsModule,
     HttpModule
   ],
-  providers: [BookService, SubjectService],
+  providers: [BookService, SubjectService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
