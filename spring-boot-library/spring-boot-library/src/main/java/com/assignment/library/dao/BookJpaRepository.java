@@ -14,7 +14,7 @@ import com.assignment.library.entities.Book;
  * @author Admin
  *
  */
-@Repository
+@Repository("bookJpaRepository")
 public interface BookJpaRepository extends JpaRepository<Book, Integer> {
 	
 	/**
