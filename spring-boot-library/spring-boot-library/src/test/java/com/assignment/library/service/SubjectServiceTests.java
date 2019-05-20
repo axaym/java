@@ -1,5 +1,6 @@
 package com.assignment.library.service;
 
+import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 import java.io.IOException;
@@ -30,15 +31,8 @@ public class SubjectServiceTests {
 
 	@Test
 	public void testSearchSubjects() throws IOException {
-		Subject subject1 = new Subject();
-		subject1.setSubjectId(1);
-		subject1.setDurationInHours(12);
-		subject1.setSubtitle("PQR");
-
-		Subject subject2 = new Subject();
-		subject2.setSubjectId(2);
-		subject2.setDurationInHours(22);
-		subject2.setSubtitle("XYZ");
+		Subject subject1 = getSubject(1, 12, "Computer Science");
+		Subject subject2 = getSubject(1, 12, "Electronics");		
 
 		List<Subject> subjects = new ArrayList<>();
 		subjects.add(subject1);
@@ -47,6 +41,44 @@ public class SubjectServiceTests {
 		when(subjectJpaRepository.findBySubtitleLike("%"+subject2.getSubtitle()+"%")).thenReturn(subjects);
 		List<Subject> subjectsFromService = subjectService.searchSubject(subject2);
 		Assertions.assertNotNull(subjectsFromService);
+	}
+	
+	@Test
+	public void testSearchSubjectsByDuration() throws IOException {
+		Subject subject1 = getSubject(1, 12, "Computer Science");
 
+		List<Subject> subjects = new ArrayList<>();
+		subjects.add(subject1);
+
+		when(subjectJpaRepository.findByDurationInHours(subject1.getDurationInHours())).thenReturn(subjects);
+		List<Subject> subjectsFromService = subjectService.searchSubjectByDurationEqual(subject1);
+		Assertions.assertNotNull(subjectsFromService);
+		Assertions.assertEquals(subjects.size(), subjectsFromService.size());
+	}
+	
+	@Test
+	public void testAddSubject() throws IOException {
+		Subject subject1 = getSubject(1, 12, "Computer Science");
+
+		when(subjectJpaRepository.saveAndFlush(subject1)).thenReturn(subject1);
+		String status = subjectService.addSubject(subject1);
+		Assertions.assertEquals("success", status);
+	}
+	
+	@Test
+	public void testDeleteSubject() throws IOException {
+		Subject subject1 = getSubject(1, 12, "Computer Science");
+
+		doNothing().when(subjectJpaRepository).deleteById(subject1.getSubjectId());
+		String status = subjectService.deleteSubject(subject1);
+		Assertions.assertEquals("success", status);
+	}
+
+	private Subject getSubject(int subjectId, int duration, String subTitle) {
+		Subject subject1 = new Subject();
+		subject1.setSubjectId(subjectId);
+		subject1.setDurationInHours(duration);
+		subject1.setSubtitle(subTitle);
+		return subject1;
 	}
 }
