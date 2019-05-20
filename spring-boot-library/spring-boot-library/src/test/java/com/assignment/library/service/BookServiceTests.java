@@ -21,7 +21,7 @@ import com.assignment.library.entities.Book;
 @ContextConfiguration(classes = { BookService.class })
 @WebMvcTest
 @AutoConfigureMockMvc
-public class SpringBootLibraryServiceTests {
+public class BookServiceTests {
 
 	@Autowired
 	private IBookService bookService;

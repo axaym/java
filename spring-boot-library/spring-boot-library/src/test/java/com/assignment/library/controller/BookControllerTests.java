@@ -1,8 +1,9 @@
-package com.assignment.library.service;
+package com.assignment.library.controller;
 
 import static org.mockito.Mockito.when;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -20,11 +21,12 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.assignment.library.controller.BookController;
 import com.assignment.library.entities.Book;
+import com.assignment.library.service.IBookService;
 
 @ContextConfiguration(classes = { BookController.class })
 @WebMvcTest
 @AutoConfigureMockMvc
-public class SpringBootLibraryControllerTests {
+public class BookControllerTests {
 
 	@Autowired
 	private MockMvc mockMvc;
@@ -54,6 +56,8 @@ public class SpringBootLibraryControllerTests {
 
 		when(bookService.getAllBooks()).thenReturn(books);
 		mockMvc.perform(MockMvcRequestBuilders.get("/book/books").with(user("axay"))
-				.contentType(MediaType.APPLICATION_JSON).accept(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+				.contentType(MediaType.APPLICATION_JSON)
+				.accept(MediaType.APPLICATION_JSON))
+		.andExpect(status().isOk());
 	}
 }
