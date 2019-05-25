@@ -92,7 +92,7 @@ public class BookServiceTests {
 	public void tesAddBook() {
 		Book book1 = getBook(1, 2, "Biology", "12.23", 3);
 				
-		when(bookJpaRepository.saveAndFlush(book1)).thenReturn(book1);
+		when(bookJpaRepository.saveAndFlush(book1)).thenReturn(book1);		
 		String status = bookService.addBook(book1);
 		Assertions.assertEquals("success", status);
 	}
