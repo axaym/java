@@ -1,4 +1,4 @@
-package com.assignment.library;
+package com.assignment.taskmanager;
 
 
 import org.springframework.boot.SpringApplication;
@@ -9,8 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan("com.assignment.library")
-@EnableJpaRepositories("com.assignment.library.dao")
+@ComponentScan("com.assignment.taskmanager")
+@EnableJpaRepositories("com.assignment.taskmanager.dao")
 public class SpringBootLibraryApplication extends SpringBootServletInitializer {
 
 	@Override

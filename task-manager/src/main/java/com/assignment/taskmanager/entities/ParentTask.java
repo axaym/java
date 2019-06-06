@@ -1,4 +1,4 @@
-package com.assignment.library.entities;
+package com.assignment.taskmanager.entities;
 
 import java.util.Set;
 

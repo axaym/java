@@ -1,12 +1,12 @@
-package com.assignment.library.service;
+package com.assignment.taskmanager.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.assignment.library.dao.TaskJpaRepository;
-import com.assignment.library.entities.Task;
+import com.assignment.taskmanager.dao.TaskJpaRepository;
+import com.assignment.taskmanager.entities.Task;
 
 @Service("taskService")
 public class TaskService implements ITaskService {

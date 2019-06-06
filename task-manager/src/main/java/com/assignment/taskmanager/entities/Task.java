@@ -1,4 +1,4 @@
-package com.assignment.library.entities;
+package com.assignment.taskmanager.entities;
 // default package
 // Generated Dec 23, 2018 8:35:19 PM by Hibernate Tools 5.2.10.Final
 

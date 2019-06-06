@@ -4,21 +4,17 @@
 <!-- Generated Dec 23, 2018 8:35:19 PM by Hibernate Tools 5.2.10.Final -->
 <hibernate-mapping>
  <class catalog="assignment"
-  name="com.assignment.library.entities.ParentTask" table="parent_task">
+  name="com.assignment.taskmanager.entities.ParentTask" table="parent_task">
   <id name="parentId" type="java.lang.Integer">
    <column name="parent_id" not-null="true" unique="true"/>
    <generator class="identity"/>
   </id>
-  <!--  <many-to-one class="com.assignment.library.entities.Subject" embed-xml="true" fetch="select" insert="true" 
-        	name="subject" not-found="exception" optimistic-lock="true" unique="false" update="true">
-            <column name="subject_id" not-null="true"/>
-        </many-to-one> -->
   <property generated="never" lazy="false" name="parentTask" type="string">
    <column length="200" name="parent_task" not-null="false"/>
   </property>
   <set name="tasks" table="task" inverse="true" >
    <key column="parent_id" not-null="true"/>
-   <one-to-many class="com.assignment.library.entities.Task"/>
+   <one-to-many class="com.assignment.taskmanager.entities.Task"/>
   </set>
  </class>
 </hibernate-mapping>

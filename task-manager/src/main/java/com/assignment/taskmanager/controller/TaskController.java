@@ -1,4 +1,4 @@
-package com.assignment.library.controller;
+package com.assignment.taskmanager.controller;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.assignment.library.entities.Task;
-import com.assignment.library.service.ITaskService;
+import com.assignment.taskmanager.entities.Task;
+import com.assignment.taskmanager.service.ITaskService;
 
 @CrossOrigin(origins="http://localhost:4200")
 @RestController("taskController")

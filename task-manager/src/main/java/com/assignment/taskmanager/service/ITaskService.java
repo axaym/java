@@ -1,8 +1,8 @@
-package com.assignment.library.service;
+package com.assignment.taskmanager.service;
 
 import java.util.List;
 
-import com.assignment.library.entities.Task;
+import com.assignment.taskmanager.entities.Task;
 
 public interface ITaskService {
 

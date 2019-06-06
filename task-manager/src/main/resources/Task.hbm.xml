@@ -3,19 +3,15 @@
                                    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated Dec 23, 2018 8:35:19 PM by Hibernate Tools 5.2.10.Final -->
 <hibernate-mapping>
- <class catalog="assignment" name="com.assignment.library.entities.Task" table="task">
+ <class catalog="assignment" name="com.assignment.taskmanager.entities.Task" table="task">
   <id name="taskId" type="java.lang.Integer">
    <column name="task_id"/>
    <generator class="identity"/>
   </id>
-  <many-to-one class="com.assignment.library.entities.ParentTask" embed-xml="true" fetch="select" insert="false" 
+  <many-to-one class="com.assignment.taskmanager.entities.ParentTask" embed-xml="true" fetch="select" insert="false" 
         	name="parentTask" not-found="exception" update="false">
             <column name="parent_id" not-null="true"/>
   </many-to-one>
-  <!--  <many-to-one class="com.assignment.library.entities.Subject" embed-xml="true" fetch="select" insert="true" 
-        	name="subject" not-found="exception" optimistic-lock="true" unique="false" update="true">
-            <column name="subject_id" not-null="true"/>
-        </many-to-one> -->
   <property generated="never" lazy="false" name="task" type="string">
    <column length="200" name="task" not-null="false"/>
   </property>
