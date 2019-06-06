@@ -4,6 +4,8 @@ package com.assignment.taskmanager.entities;
 
 import java.util.Date;
 
+import org.hibernate.validator.constraints.Range;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
@@ -24,6 +26,8 @@ public class Task implements java.io.Serializable {
 	private String task;
 	private Date startDate;
 	private Date endDate;
+	
+	@Range(min = 0, max = 30)
 	private Integer priority;
 
 	public Task() {

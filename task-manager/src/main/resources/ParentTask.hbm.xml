@@ -7,7 +7,7 @@
   name="com.assignment.taskmanager.entities.ParentTask" table="parent_task">
   <id name="parentId" type="java.lang.Integer">
    <column name="parent_id" not-null="true" unique="true"/>
-   <generator class="identity"/>
+   <!-- <generator class="identity"/> -->
   </id>
   <property generated="never" lazy="false" name="parentTask" type="string">
    <column length="200" name="parent_task" not-null="false"/>
