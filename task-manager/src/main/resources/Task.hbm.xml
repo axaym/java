@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 23, 2018 8:35:19 PM by Hibernate Tools 5.2.10.Final -->
+<hibernate-mapping>
+ <class catalog="assignment" name="com.assignment.library.entities.Task" table="task">
+  <id name="taskId" type="java.lang.Integer">
+   <column name="task_id"/>
+   <generator class="identity"/>
+  </id>
+  <many-to-one class="com.assignment.library.entities.ParentTask" embed-xml="true" fetch="select" insert="false" 
+        	name="parentTask" not-found="exception" update="false">
+            <column name="parent_id" not-null="true"/>
+  </many-to-one>
+  <!--  <many-to-one class="com.assignment.library.entities.Subject" embed-xml="true" fetch="select" insert="true" 
+        	name="subject" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="subject_id" not-null="true"/>
+        </many-to-one> -->
+  <property generated="never" lazy="false" name="task" type="string">
+   <column length="200" name="task" not-null="false"/>
+  </property>
+  <property generated="never" lazy="false" name="endDate" type="date">
+   <column name="end_date" not-null="false"/>
+  </property>
+  <property generated="never" lazy="false" name="priority" type="int">
+   <column name="priority" not-null="false"/>
+  </property>
+  <property generated="never" lazy="false" name="startDate" type="date">
+   <column length="10" name="start_date" not-null="false"/>
+  </property>
+  <property generated="never" lazy="false" name="parentId" type="java.lang.Integer">
+   <column name="parent_id" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>

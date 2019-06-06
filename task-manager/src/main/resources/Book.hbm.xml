@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Dec 23, 2018 8:35:19 PM by Hibernate Tools 5.2.10.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="assignment" dynamic-insert="false" dynamic-update="false" mutable="true" 
+    name="com.assignment.library.entities.Book" optimistic-lock="version" polymorphism="implicit" 
+    select-before-update="false" table="book">
+        <id name="bookId" type="java.lang.Integer">
+            <column name="book_id"/>
+            <generator class="identity"/>
+        </id>
+       <!--  <many-to-one class="com.assignment.library.entities.Subject" embed-xml="true" fetch="select" insert="true" 
+        	name="subject" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="subject_id" not-null="true"/>
+        </many-to-one> -->
+        <property generated="never" lazy="false" name="title" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="title" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="price" optimistic-lock="true" type="big_decimal" unique="false">
+            <column name="price" not-null="true" precision="5"/>
+        </property>
+        <property generated="never" lazy="false" name="volume" optimistic-lock="true" type="int" unique="false">
+            <column name="volume" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="publishDate" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="publish_date" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="subjectId" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column length="100" name="subject_id" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

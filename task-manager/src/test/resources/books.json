@@ -1,0 +1,92 @@
+[
+	{
+		"bookId": 5,
+		"subjectId": 4,
+		"subject": null,
+		"title": "Physics",
+		"price": 23.80,
+		"volume": 6,
+		"publishDate": "2002-08-07"
+	},
+	{
+		"bookId": 34,
+		"subjectId": 3,
+		"subject": null,
+		"title": "DotNet",
+		"price": 23.45,
+		"volume": 3,
+		"publishDate": "2003-02-14"
+	},
+	{
+		"bookId": 45,
+		"subjectId": 3,
+		"subject": null,
+		"title": "test",
+		"price": 2.00,
+		"volume": 4,
+		"publishDate": "2019-01-09"
+	},
+	{
+		"bookId": 46,
+		"subjectId": 3,
+		"subject": null,
+		"title": "test1",
+		"price": 2.00,
+		"volume": 2,
+		"publishDate": "2019-01-17"
+	},
+	{
+		"bookId": 51,
+		"subjectId": 3,
+		"subject": null,
+		"title": "R23",
+		"price": 45.00,
+		"volume": 4,
+		"publishDate": "2019-01-09"
+	},
+	{
+		"bookId": 53,
+		"subjectId": 3,
+		"subject": null,
+		"title": "Java71",
+		"price": 12.13,
+		"volume": 3,
+		"publishDate": "2001-12-01"
+	},
+	{
+		"bookId": 54,
+		"subjectId": 3,
+		"subject": null,
+		"title": "Java6",
+		"price": 12.13,
+		"volume": 3,
+		"publishDate": "2001-12-01"
+	},
+	{
+		"bookId": 55,
+		"subjectId": 3,
+		"subject": null,
+		"title": "Mechanical Engg",
+		"price": 12.12,
+		"volume": 2,
+		"publishDate": "2001-12-01"
+	},
+	{
+		"bookId": 56,
+		"subjectId": 3,
+		"subject": null,
+		"title": "Code refactoring in Java",
+		"price": 12.30,
+		"volume": 1,
+		"publishDate": "2001-12-01"
+	},
+	{
+		"bookId": 57,
+		"subjectId": 3,
+		"subject": null,
+		"title": "Geography",
+		"price": 212.00,
+		"volume": 2,
+		"publishDate": "2019-01-23"
+	}
+]
