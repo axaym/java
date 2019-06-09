@@ -1,0 +1,23 @@
+<div >
+    <div class="row">
+        <div class="col">Task</div>
+        <div class="col">Parent</div>
+        <div class="col">Priority</div>
+        <div class="col">Start</div>
+        <div class="col">End</div>
+        <div class="col"></div>
+        <div class="col"></div>
+        <div class="w-100"></div>
+        <div class="col">{{selectedRow && selectedRow.task}}</div>
+        <div class="col">{{selectedRow && selectedRow.parentTask && selectedRow.parentTask.parentTask}}</div>
+        <div class="col">{{selectedRow && selectedRow.priority}}</div>
+        <div class="col">{{selectedRow && selectedRow.startDate}}</div>
+        <div class="col">{{selectedRow && selectedRow.endDate}}</div>
+        <div class="col">
+            <button (click)="edit($event)">Edit</button>
+        </div>
+        <div class="col">
+            <button (click)="endTask($event)">End Task</button>
+        </div>
+      </div>
+</div>

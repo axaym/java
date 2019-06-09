@@ -1,0 +1,97 @@
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~bootstrap/dist/css/bootstrap.min.css';
+body {
+    /* font-size: 35px; */
+    font-family: sans-serif;
+    color: black;
+    margin: 4px;
+    padding: 4px;
+} 
+
+h1 {
+    background-color:rgb(124, 139, 141);
+    color: white;
+    padding: 6px;
+    height: 20px;
+    font-size: 18px;
+}
+
+h2 {
+    background-color:rgb(163, 171, 184);
+    color: white;
+    padding: 8px;
+}
+
+input[type=text], input[type=email], input[type=date], input[type=password]  {
+    display: block;
+    
+    height: 20px;
+    font-size: 14px;
+    width: 100%;
+}
+
+img {
+    width: 150px; 
+    height: 150px;
+    float: left;
+    padding-right: 12px;
+}
+
+.summary-div {
+    width: 100%;
+}
+
+.summary {
+    padding: 4px 6px;
+
+}
+
+label {
+    text-align: left;
+    width: 100%;
+    display: block;
+    
+}
+
+.form-group {
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    
+
+}
+
+input[type=submit], button {
+    background-color:rgb(163, 171, 184);
+    color: white;
+    width: 100%;
+    border: none;
+    height: 20px;
+    font-size: 14px;
+}
+input[type=submit]:hover, button:hover  {
+    background-color:rgb(124, 139, 141);
+}
+
+nav {
+    display: inline;
+}
+.nav-container {
+    display: inline;
+}
+
+.div-count {
+    display: flex;
+}
+a {
+    color:white;
+    background-color:rgb(124, 139, 141);
+    padding: 12px;
+    margin: 12px;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color:rgb(124, 139, 141);
+    text-decoration: underline;
+}

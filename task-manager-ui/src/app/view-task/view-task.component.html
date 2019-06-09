@@ -1,0 +1,7 @@
+<div>
+  <div *ngFor = "let task of taskListData">
+    <app-task-item (endTaskItem)="endTask($event)"
+      (editItem)="editTask($event)"
+      [selectedRow] = "task"></app-task-item>
+  <div>
+</div>
