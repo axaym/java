@@ -21,6 +21,9 @@
   <property generated="never" lazy="false" name="priority" type="int">
    <column name="priority" not-null="false"/>
   </property>
+  <property generated="never" lazy="false" name="status" type="int">
+   <column name="status" not-null="false"/>
+  </property>
   <property generated="never" lazy="false" name="startDate" type="date">
    <column length="10" name="start_date" not-null="false"/>
   </property>

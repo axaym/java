@@ -29,17 +29,21 @@ public class Task implements java.io.Serializable {
 	
 	@Range(min = 0, max = 30)
 	private Integer priority;
+	
+	private Integer status;
 
 	public Task() {
 	}
 
-	public Task(Integer taskId, Integer parentId, String task, Date startDate, Date endDate, Integer priority) {
+	public Task(Integer taskId, Integer parentId, String task,
+			Date startDate, Date endDate, Integer priority, Integer status) {
 		this.taskId = taskId;
 		this.parentId = parentId;
 		this.task = task;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.priority = priority;
+		this.status = status;
 	}
 
 	public Integer getTaskId() {
@@ -96,7 +100,16 @@ public class Task implements java.io.Serializable {
 
 	public void setParentTask(ParentTask parentTask) {
 		this.parentTask = parentTask;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
 	}	
+	
 	
 	/*@Override
 	public String toString() {
