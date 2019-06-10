@@ -11,8 +11,8 @@
         <div class="col">{{selectedRow && selectedRow.task}}</div>
         <div class="col">{{selectedRow && selectedRow.parentTask && selectedRow.parentTask.parentTask}}</div>
         <div class="col">{{selectedRow && selectedRow.priority}}</div>
-        <div class="col">{{selectedRow && selectedRow.startDate}}</div>
-        <div class="col">{{selectedRow && selectedRow.endDate}}</div>
+        <div class="col">{{selectedStartDate}}</div>
+        <div class="col">{{selectedEndDate}}</div>
         <div class="col">
             <button (click)="edit($event)">Edit</button>
         </div>
