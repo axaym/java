@@ -1,4 +1,4 @@
-<div >
+<div>
     <div class="row">
         <div class="col">Task</div>
         <div class="col">Parent</div>
@@ -13,11 +13,14 @@
         <div class="col">{{selectedRow && selectedRow.priority}}</div>
         <div class="col">{{selectedStartDate}}</div>
         <div class="col">{{selectedEndDate}}</div>
-        <div class="col">
+        <div class="col" *ngIf="selectedRow && selectedRow.status === 0">
             <button (click)="edit($event)">Edit</button>
         </div>
-        <div class="col">
+        <div class="col" *ngIf="selectedRow && selectedRow.status === 0">
             <button (click)="endTask($event)">End Task</button>
         </div>
-      </div>
+        <div class="col" *ngIf="selectedRow && selectedRow.status === 0">
+            <button (click)="delete($event)">Delete</button>
+        </div>
+    </div>
 </div>

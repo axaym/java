@@ -13,26 +13,27 @@ import * as moment from 'moment';
 })
 export class DialogboxComponent implements OnInit {
 
-  @Input() parentTaskListData;
-  @Input() selectedRow;
-  @Input() selectedParentTaskId;
+  @Input() parentTaskListData = [{"parentId":1,"parentTask":"Parent task1"},{"parentId":2,"parentTask":"Parent task22"},{"parentId":7,"parentTask":"My first task1"}];
+  @Input() selectedParentTask;
 
   taskForm = this.fb.group({
     taskId: [''],
     task: [''],
     priority: [''],
+    status:[''],
     startDate: [''],
     endDate: [''],
-    parentId: ['']
+    parentId: [''],
+    parentTask: {}
   });
 
   constructor(
     public dialogRef: MatDialogRef<DialogboxComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData,
+    @Inject(MAT_DIALOG_DATA) public data: TaskObject,
     private fb: FormBuilder, private taskService: TaskService, private parentTaskService: ParentTaskService) { }
 
   ngOnInit() {
-    this.getParentTasks();
+    //this.getParentTasks();
   }
 
   getParentTasks() {
@@ -48,7 +49,7 @@ export class DialogboxComponent implements OnInit {
 
   updateTask(event) {
     let p: TaskObject = new TaskObject();
-    p = this.data.selectedRow;
+    p = this.data;
     if (this.taskForm.controls.task.touched) {
       p.task = this.taskForm.value.task;
     }

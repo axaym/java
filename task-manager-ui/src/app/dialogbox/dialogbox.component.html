@@ -1,21 +1,21 @@
 <h1 mat-dialog-title>Edit Task</h1>
-<div>{{data.selectedParentTaskId}}</div>
+<div>{{data.parentTask.parentId}}</div>
 <div mat-dialog-content>
   <form [formGroup]="taskForm" (ngSubmit)="updateTask($event)">
     <div class="example-container">
       <mat-form-field>
         <input matInput placeholder="Task" formControlName="task"
-        value="{{data.selectedRow && data.selectedRow.task || ''}}">
+        value="{{data && data.task || ''}}">
       </mat-form-field>
 
       <mat-slider min="1" max="30" step="1" 
-        value="{{data.selectedRow && data.selectedRow.priority || ''}}" 
+        value="{{data && data.priority || ''}}" 
         formControlName="priority" thumbLabel="true">
       </mat-slider>
 
       <mat-form-field>
         <mat-select placeholder="Parent Task" formControlName="parentId"
-         [(value)]= "data.selectedParentTaskId">
+        value="{{data && data.parentTask.parentId || ''}}">
           <mat-option *ngFor = "let parentTask of parentTaskListData"
            [value]="parentTask.parentId" >{{parentTask.parentTask}}
          </mat-option>
@@ -24,7 +24,7 @@
 
       <mat-form-field>
         <input matInput [matDatepicker]="picker1" 
-          value="{{data.selectedRow && data.selectedRow.startDate || ''}}" 
+          value="{{data && data.startDate || ''}}" 
           placeholder="Start Date" formControlName="startDate">
         <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
@@ -32,7 +32,7 @@
 
       <mat-form-field>
         <input matInput [matDatepicker]="picker2" 
-          value="{{data.selectedRow && data.selectedRow.endDate || ''}}" 
+          value="{{data && data.endDate || ''}}" 
           placeholder="End Date" formControlName="endDate">
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>

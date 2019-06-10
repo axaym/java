@@ -18,6 +18,7 @@ export class AddTaskComponent implements OnInit {
     taskId: [''],
     task: [''],
     priority: [''],
+    status: [''],
     startDate: [''],
     endDate: [''],
     parentId: ['']

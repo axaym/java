@@ -1,3 +1,5 @@
+import { ParentTaskObject } from './parent-task-object';
+
 export class TaskObject {
     public taskId: number;
     public task: string;
@@ -5,4 +7,6 @@ export class TaskObject {
     public endDate: string;
     public parentId: number;
     public priority: number;
+    public status: number;
+    public parentTask: ParentTaskObject;
 }

@@ -17,7 +17,7 @@ export class TaskService {
   }
 
   async deleteTask(task): Promise<any> {
-    return await this.http.delete('http://localhost:8081/task-manager/task/delete',task)
+    return await this.http.post('http://localhost:8081/task-manager/task/delete',task)
       .toPromise().then(res => res);
   }
   async updateTask(task): Promise<any> {

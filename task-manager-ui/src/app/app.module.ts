@@ -24,6 +24,7 @@ import { TaskItemComponent } from './task-item/task-item.component';
 import {TaskService} from './task.service';
 import {ParentTaskService} from './parent-task.service';
 import { DialogboxComponent } from './dialogbox/dialogbox.component';
+import { CustomfilterPipe } from './customfilter.pipe';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { DialogboxComponent } from './dialogbox/dialogbox.component';
     ViewTaskComponent,
     UpdateTaskComponent,
     TaskItemComponent,
-    DialogboxComponent
+    DialogboxComponent,
+    CustomfilterPipe
   ],
   imports: [
     BrowserModule,

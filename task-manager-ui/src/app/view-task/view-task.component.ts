@@ -32,7 +32,7 @@ export class ViewTaskComponent implements OnInit {
   endTask(event) {
     let task:TaskObject = new TaskObject();
     Object.assign(task, event);
-    task.endDate = moment(new Date()).format("YYYY-MM-DD");
+    task.status = 1;
     this.taskService.updateTask(task).
     then(
       res => this.showAlert("task add status: " + res._body)
@@ -43,11 +43,18 @@ export class ViewTaskComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogboxComponent, {
       width: '700px',
       height: '600px',
-      data: {'selectedRow' : event, 'selectedParentTaskId':'2'}
+      data: event
     });
 
     dialogRef.afterClosed().subscribe(result => {
     });
+  }
+
+  deleteTask(event) {
+    this.taskService.deleteTask(event).
+    then(
+      res => this.showAlert("task delete status: " + res._body)
+    );
   }
 
   showAlert(str) {

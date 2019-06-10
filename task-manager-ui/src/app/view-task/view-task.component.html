@@ -1,7 +1,18 @@
 <div>
-  <div *ngFor = "let task of taskListData">
+  <div class="row">
+      Task: <input [(ngModel)]= "task">
+       Priority: <input [(ngModel)]= "priorityFrom">
+  </div>
+  <div class="row">
+      Parent: <input [(ngModel)]= "parentTask">  
+      Start Date: <input [(ngModel)]= "startDate">  
+      End Date: <input [(ngModel)]= "endDate">    
+  </div>
+ 
+  <div *ngFor = "let task of taskListData | customfilter : 'endDate' :endDate">
     <app-task-item (endTaskItem)="endTask($event)"
       (editItem)="editTask($event)"
+      (deleteItem)="deleteTask($event)"
       [selectedRow] = "task"></app-task-item>
   <div>
 </div>

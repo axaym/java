@@ -15,6 +15,7 @@ export class TaskItemComponent implements OnInit {
   @Input() selectedEndDate;
   @Output() endTaskItem = new EventEmitter<TaskObject>();
   @Output() editItem = new EventEmitter<TaskObject>();
+  @Output() deleteItem = new EventEmitter<TaskObject>();
 
   constructor() { }
 
@@ -39,6 +40,10 @@ export class TaskItemComponent implements OnInit {
 
   edit(event) {
     this.editItem.emit(this.selectedRow);
+  }
+
+  delete(event) {
+    this.deleteItem.emit(this.selectedRow);
   }
 
 }
