@@ -23,6 +23,7 @@ import { TaskItemComponent } from './task-item/task-item.component';
 
 import {TaskService} from './task.service';
 import {ParentTaskService} from './parent-task.service';
+import { DialogboxComponent } from './dialogbox/dialogbox.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import {ParentTaskService} from './parent-task.service';
     AddTaskComponent,
     ViewTaskComponent,
     UpdateTaskComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    DialogboxComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +52,9 @@ import {ParentTaskService} from './parent-task.service';
     HttpModule
   ],
   providers: [TaskService, ParentTaskService],
+  entryComponents: [
+    AddTaskComponent, DialogboxComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

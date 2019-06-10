@@ -1,7 +1,11 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Inject } from '@angular/core';
 import { TaskService } from '../task.service';
 import { TaskObject } from '../task-object';
+
+import { AddTaskComponent } from '../add-task/add-task.component';
+import { DialogboxComponent } from '../dialogbox/dialogbox.component';
 import * as moment from 'moment';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-view-task',
@@ -11,7 +15,7 @@ import * as moment from 'moment';
 export class ViewTaskComponent implements OnInit {
 
   @Input() taskListData;
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, private dialog: MatDialog) { }
 
 
   ngOnInit() {
@@ -36,7 +40,14 @@ export class ViewTaskComponent implements OnInit {
   }
 
   editTask(event) {
-    //open edit overlay
+    const dialogRef = this.dialog.open(DialogboxComponent, {
+      width: '700px',
+      height: '600px',
+      data: {'selectedRow' : event, 'selectedParentTaskId':'2'}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+    });
   }
 
   showAlert(str) {
