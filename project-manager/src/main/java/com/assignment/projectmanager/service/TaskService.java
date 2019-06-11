@@ -22,19 +22,12 @@ public class TaskService implements ITaskService {
 	@Override
 	public String addTask(Task task) {
 		taskJpaRepository.saveAndFlush(task);
-		/*if(taskResponse != null && taskResponse.getTaskId() != null) {
-			ParentTask parentTask = new ParentTask();
-			parentTask.setParentId(taskResponse.getTaskId());
-			parentTask.setParentTask(taskResponse.getTask());
-			parentTaskJpaRepository.saveAndFlush(parentTask);
-		}*/		
 		return "success";
 	}
 
 	@Override
 	public String deleteTask(Task task) {
 		taskJpaRepository.deleteById(task.getTaskId());
-		//parentTaskJpaRepository.deleteById(task.getTaskId());
 		return "success";
 	}
 
@@ -43,17 +36,15 @@ public class TaskService implements ITaskService {
 		Integer taskId = task.getTaskId();
 		if(taskJpaRepository.existsById(taskId)) {
 			taskJpaRepository.saveAndFlush(task);
-			/*if(parentTaskJpaRepository.existsById(taskId)) {
-				ParentTask parentTask = new ParentTask();
-				parentTask.setParentId(taskId);
-				parentTask.setParentTask(task.getTask());
-				parentTaskJpaRepository.saveAndFlush(parentTask);
-				return "Task updated successfully";
-			}*/
 			return "success";
 		}		
 		
 		return "fail";
+	}
+
+	@Override
+	public List<Task> getTasksByProject(Task task) {
+		return taskJpaRepository.findAllByProjectId(task.getProjectId());
 	}
 
 }

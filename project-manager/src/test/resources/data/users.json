@@ -1,0 +1,14 @@
+[
+    {
+        "userId": 1,
+        "employeeId": "A1234",
+        "firstName": "Axay",
+        "lastName": "Mehta"
+    },
+    {
+        "userId": 2,
+        "employeeId": "B23432",
+        "firstName": "Jane",
+        "lastName": "Doe"
+    }
+]

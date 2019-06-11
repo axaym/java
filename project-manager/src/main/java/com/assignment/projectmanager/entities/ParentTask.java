@@ -2,9 +2,7 @@ package com.assignment.projectmanager.entities;
 
 import java.util.Set;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 // default package
 // Generated Dec 23, 2018 8:35:19 PM by Hibernate Tools 5.2.10.Final

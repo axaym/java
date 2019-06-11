@@ -2,7 +2,7 @@ package com.assignment.projectmanager.dao;
 
 
 
-import java.util.Date;
+import java.io.File;
 import java.util.List;
 
 import org.junit.jupiter.api.Assertions;
@@ -12,6 +12,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import com.assignment.projectmanager.entities.Task;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
@@ -22,7 +23,13 @@ public class TaskDAOTest {
 
 	@Test
 	public void testSaveAndFindTask() throws Exception {
-		Task task1 = getTaskObj("Task 23213123", 2, new Date(), new Date(), 104);
+		
+		Task task1 = new Task();
+		ObjectMapper objectMapper = new ObjectMapper();
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("data/task.json").getFile());
+		task1 = objectMapper.readValue(file, Task.class);
+		
 		taskJpaRepository.saveAndFlush(task1);
 
 		List<Task> task = taskJpaRepository.findByTask(task1.getTask());
@@ -34,7 +41,12 @@ public class TaskDAOTest {
 	
 	@Test
 	public void testDeleteAndFindTask() throws Exception {
-		Task task1 = getTaskObj("Task 2 for deletion test", 3, new Date(), new Date(), 33);
+		Task task1 = new Task();
+		ObjectMapper objectMapper = new ObjectMapper();
+		ClassLoader classLoader = getClass().getClassLoader();
+		File file = new File(classLoader.getResource("data/task2.json").getFile());
+		task1 = objectMapper.readValue(file, Task.class);
+		
 		taskJpaRepository.saveAndFlush(task1);
 		List<Task> task = taskJpaRepository.findByTask(task1.getTask());
 		taskJpaRepository.deleteById(task.get(0).getTaskId());
@@ -42,14 +54,5 @@ public class TaskDAOTest {
 		List<Task> taskAfterDeletion = taskJpaRepository.findByTask(task.get(0).getTask());
 		Assertions.assertEquals(0, taskAfterDeletion.size());
 	}
-
-	private Task getTaskObj(String task, int priority, Date startDate, Date endDate, int taskId) {
-		Task taskObj = new Task();
-		taskObj.setTask(task);
-		taskObj.setTaskId(taskId);
-		taskObj.setPriority(priority);
-		taskObj.setStartDate(startDate);
-		taskObj.setEndDate(endDate);
-		return taskObj;
-	}
+	
 }

@@ -26,6 +26,11 @@ public class TaskController {
         return taskService.getTasks();        
     }
 	
+	@PostMapping("/task/tasksByProject")
+    public @ResponseBody List<Task> getTasksByProject(@RequestBody Task task) {
+        return taskService.getTasksByProject(task);        
+    }
+	
 	@PostMapping("/task/add")
     public @ResponseBody String addTask(@RequestBody Task task) {
         return taskService.addTask(task);        

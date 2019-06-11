@@ -32,6 +32,12 @@ public interface ITaskService {
 	 */
 	public String updateTask(Task task);
 
+	/**get tasks by project
+	 * @param task
+	 * @return
+	 */
+	public List<Task> getTasksByProject(Task task);
+
 	
 
 }

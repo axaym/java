@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 23, 2018 8:35:19 PM by Hibernate Tools 5.2.10.Final -->
+<hibernate-mapping>
+ <class catalog="assignment"
+  name="com.assignment.projectmanager.entities.ProjectUser" table="project_users">
+  <id name="userId" type="java.lang.Integer">
+   <column name="user_id"/>
+   <generator class="identity"/>
+  </id>
+  <property generated="never" lazy="false" name="firstName" type="string">
+   <column length="200" name="first_name" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="lastName" type="string">
+   <column length="200" name="last_name" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="employeeId" type="string">
+   <column length="200" name="employee_id" not-null="true"/>
+  </property>
+  <set name="tasks" table="task" inverse="true" >
+   <key column="user_id" not-null="true"/>
+   <one-to-many class="com.assignment.projectmanager.entities.Task"/>
+  </set>
+  <set name="projects" table="project" inverse="true" >
+   <key column="project_id" not-null="true"/>
+   <one-to-many class="com.assignment.projectmanager.entities.Project"/>
+  </set>
+ </class>
+</hibernate-mapping>

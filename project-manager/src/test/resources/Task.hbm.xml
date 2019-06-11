@@ -12,6 +12,14 @@
         	name="parentTask" not-found="exception" update="false">
             <column name="parent_id" not-null="true"/>
   </many-to-one>
+  <many-to-one class="com.assignment.projectmanager.entities.Project" embed-xml="true" fetch="select" insert="false" 
+        	name="project" not-found="exception" update="false">
+            <column name="project_id" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.assignment.projectmanager.entities.ProjectUser" embed-xml="true" fetch="select" insert="false" 
+        	name="user" not-found="exception" update="false">
+            <column name="user_id" not-null="true"/>
+  </many-to-one>
   <property generated="never" lazy="false" name="task" type="string">
    <column length="200" name="task" not-null="false"/>
   </property>
@@ -29,6 +37,12 @@
   </property>
   <property generated="never" lazy="false" name="parentId" type="java.lang.Integer">
    <column name="parent_id" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="projectId" type="java.lang.Integer">
+   <column name="project_id" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="userId" type="java.lang.Integer">
+   <column name="user_id" not-null="true"/>
   </property>
  </class>
 </hibernate-mapping>

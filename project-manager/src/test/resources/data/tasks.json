@@ -1,0 +1,25 @@
+[
+	{
+		"taskId": 1,
+		"parentId": 1,
+		"projectId": 1,
+		"userId": 2,
+		"task": "sample task1",
+		"startDate": "2019-01-22",
+		"endDate": "2019-04-13",
+		"priority": 2,
+		"status": 0
+	},
+	{
+		"taskId": 2,
+		"parentId": 1,
+		"projectId": 1,
+		"userId": 2,
+		"task": "sample task2",
+		"startDate": "2019-01-22",
+		"endDate": "2019-04-13",
+		"priority": 2,
+		"status": 0
+	}
+]
+    

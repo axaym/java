@@ -20,9 +20,19 @@ public class Task implements java.io.Serializable {
 	 */
 	private Integer taskId;
 	private Integer parentId;
+	private Integer projectId;
+	private Integer userId;
+	
 	
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private ParentTask parentTask;
+	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private Project project;
+	
+	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+	private ProjectUser user;
+	
 	private String task;
 	private Date startDate;
 	private Date endDate;
@@ -35,10 +45,12 @@ public class Task implements java.io.Serializable {
 	public Task() {
 	}
 
-	public Task(Integer taskId, Integer parentId, String task,
+	public Task(Integer taskId, Integer parentId, Integer projectId, Integer userId, String task,
 			Date startDate, Date endDate, Integer priority, Integer status) {
 		this.taskId = taskId;
 		this.parentId = parentId;
+		this.projectId = projectId;
+		this.userId = userId;
 		this.task = task;
 		this.startDate = startDate;
 		this.endDate = endDate;
@@ -108,13 +120,39 @@ public class Task implements java.io.Serializable {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public Integer getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(Integer projectId) {
+		this.projectId = projectId;
+	}
+
+	public Integer getUserId() {
+		return userId;
+	}
+
+	public void setUserId(Integer userId) {
+		this.userId = userId;
+	}
+
+	public Project getProject() {
+		return project;
+	}
+
+	public void setProject(Project project) {
+		this.project = project;
+	}
+
+	public ProjectUser getUser() {
+		return user;
+	}
+
+	public void setUser(ProjectUser user) {
+		this.user = user;
 	}	
 	
 	
-	/*@Override
-	public String toString() {
-		return "title:" + title + "\nprice: " + price + "\nvolume: " + volume
-				+ "\npublishDate: " + publishDate
-				+ "\nbookId: " + bookId;
-	}*/
 }
