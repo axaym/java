@@ -1,0 +1,12 @@
+<app-user-form [submitLabel]="submitLabel" 
+  [selectedFormData]="selectedFormData"
+  (itemUpdated)="editUserServiceCall($event)"
+  (itemAdded)="addUser($event)"></app-user-form>
+
+<div *ngFor = "let user of userListData">
+    <app-user-item 
+      [selectedRow] = "user"
+      (editItem)="editUser($event)"
+      (deleteItem)="deleteUser($event)">
+    </app-user-item>
+<div>

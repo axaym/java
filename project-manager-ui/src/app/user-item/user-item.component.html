@@ -1,0 +1,27 @@
+<div class="container panel">
+  <div class="row content">
+    <div class="col-sm-4">
+      <div class="row">
+        <label class="fontbold">Employee ID: </label>
+        <label>{{selectedRow && selectedRow.employeeId}}</label>
+      </div>
+      <div class="row">
+        <label class="fontbold">First Name: </label>
+        <label>{{selectedRow && selectedRow.firstName}}</label>
+      </div>
+      <div class="row">
+        <label class="fontbold">Last Name: </label>
+        <label>{{selectedRow && selectedRow.lastName}}</label>
+      </div>
+    </div>
+    <div class="col-sm-3 ">
+      <div class="row intpanel">
+        <button class="btn btn-primary" (click)="edit($event)">Edit</button>
+      </div>
+      <div class="row">
+        <button class="btn btn-primary" (click)="delete($event)">Delete</button>
+      </div>
+
+    </div>
+  </div>
+</div>
