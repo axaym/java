@@ -17,6 +17,16 @@ export class AddUserComponent implements OnInit {
     this.getUsers();
   }
 
+  sortList(prop) {
+    this.userListData = this.userListData.sort(function(a, b){
+      var x = a[prop].toLowerCase();
+      var y = b[prop].toLowerCase();
+      if (x < y) {return -1;}
+      if (x > y) {return 1;}
+      return 0;
+    });
+  }
+
   getUsers() {
     this.userService.getUsers().
       then(

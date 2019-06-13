@@ -22,6 +22,7 @@ import {TaskService} from './task.service';
 import {ParentTaskService} from './parent-task.service';
 import {UserService} from './user.service';
 import {ProjectService} from './project.service';
+import { CustomfilterPipe } from './customfilter.pipe';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {ProjectService} from './project.service';
     UserFormComponent,
     UserItemComponent,
     ViewTaskComponent,
-    TaskItemComponent
+    TaskItemComponent,
+    CustomfilterPipe
   ],
   imports: [
     BrowserModule,
