@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
@@ -23,6 +24,7 @@ import {ParentTaskService} from './parent-task.service';
 import {UserService} from './user.service';
 import {ProjectService} from './project.service';
 import { CustomfilterPipe } from './customfilter.pipe';
+import { ProjectManagerComponent } from './project-manager/project-manager.component';
 
 @NgModule({
   declarations: [
@@ -38,16 +40,21 @@ import { CustomfilterPipe } from './customfilter.pipe';
     UserItemComponent,
     ViewTaskComponent,
     TaskItemComponent,
-    CustomfilterPipe
+    CustomfilterPipe,
+    ProjectManagerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    NgbModule.forRoot()
   ],
   providers: [TaskService, ParentTaskService, UserService, ProjectService],
+  entryComponents: [
+    ProjectManagerComponent
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

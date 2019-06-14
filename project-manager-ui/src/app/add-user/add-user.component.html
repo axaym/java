@@ -30,8 +30,6 @@
     <div *ngFor="let user of userListData | customfilter : item">
       <app-user-item [selectedRow]="user" (editItem)="editUser($event)" (deleteItem)="deleteUser($event)">
       </app-user-item>
-    
-
     </div>
 
 </div>

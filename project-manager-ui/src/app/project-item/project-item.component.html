@@ -1,3 +1,31 @@
-<p>
-  project-item works!
-</p>
+<div class="container panel">
+    <div class="row content">
+      <div class="col-sm-4 list-group">
+        <div class="row list-group-item">
+          <label class="fontbold">Project: </label>
+          <label>{{selectedRow && selectedRow.project}}</label>
+        </div>
+        <div class="row list-group-item">
+          <label class="fontbold">Start Date: </label>
+          <label>{{selectedRow && selectedRow.startDate}}</label>
+        </div>
+        <div class="row list-group-item">
+          <label class="fontbold">End Date: </label>
+          <label>{{selectedRow && selectedRow.endDate}}</label>
+        </div>
+        <div class="row list-group-item">
+            <label class="fontbold">Priority: </label>
+            <label>{{selectedRow && selectedRow.priority}}</label>
+          </div>
+      </div>
+      <div class="col-sm-3 ">
+        <div class="row intpanel">
+          <button class="btn btn-primary" (click)="edit($event)">Edit</button>
+        </div>
+        <div class="row">
+          <button class="btn btn-primary" (click)="delete($event)">Delete</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
