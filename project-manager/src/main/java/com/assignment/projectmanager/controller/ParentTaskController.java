@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,5 +24,11 @@ public class ParentTaskController {
     public @ResponseBody List<ParentTask> getTasks() {
         return parentTaskService.getParentTasks();        
     }
+	
+	@PostMapping("/parenttask/add")
+    public @ResponseBody String addTask(@RequestBody ParentTask parentTask) {
+        return parentTaskService.addParentTask(parentTask);        
+    }
+	
 	
 }

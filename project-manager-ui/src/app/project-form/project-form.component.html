@@ -25,7 +25,9 @@
                      formControlName="startDate" disabled="{{disableDate}}">
               <div class="input-group-append">
                 <button
-                  class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                  class="btn btn-outline-secondary calendar" 
+                  (click)="d.toggle()" type="button" [disabled]="disableDate">
+                </button>
               </div>
             </div>
       </div>
@@ -38,7 +40,8 @@
                      disabled="{{disableDate}}">
               <div class="input-group-append">
                 <button class="btn btn-outline-secondary calendar" 
-                (click)="d1.toggle()" type="button"></button>
+                (click)="d1.toggle()" type="button"
+                [disabled]="disableDate"></button>
               </div>
             </div>
       </div>

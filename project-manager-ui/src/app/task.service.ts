@@ -7,21 +7,21 @@ export class TaskService {
   constructor(private http: Http) { }
 
   async getTasks(): Promise<any> {
-    return await this.http.get('http://localhost:8081/task-manager/task/tasks')
+    return await this.http.get('http://localhost:8081/project-manager/task/tasks')
       .toPromise().then(res => res.json());
   }
 
   async addTask(task): Promise<any> {
-    return await this.http.post('http://localhost:8081/task-manager/task/add',task)
+    return await this.http.post('http://localhost:8081/project-manager/task/add',task)
       .toPromise().then(res => res);
   }
 
   async deleteTask(task): Promise<any> {
-    return await this.http.post('http://localhost:8081/task-manager/task/delete',task)
+    return await this.http.post('http://localhost:8081/project-manager/task/delete',task)
       .toPromise().then(res => res);
   }
   async updateTask(task): Promise<any> {
-    return await this.http.put('http://localhost:8081/task-manager/task/update',task)
+    return await this.http.put('http://localhost:8081/project-manager/task/update',task)
       .toPromise().then(res => res);
   }
 }
