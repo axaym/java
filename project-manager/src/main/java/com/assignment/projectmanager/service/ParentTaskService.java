@@ -21,12 +21,8 @@ public class ParentTaskService implements IParentTaskService {
 
 	@Override
 	public String addParentTask(ParentTask parentTask) {
-		Integer parentId = parentTask.getParentId();
-		if(parentTaskJpaRepository.existsById(parentId)) {
-			parentTaskJpaRepository.saveAndFlush(parentTask);
-			return "success";
-		}
-		return "fail";
+		parentTaskJpaRepository.saveAndFlush(parentTask);
+		return "success";
 	}
 
 	@Override

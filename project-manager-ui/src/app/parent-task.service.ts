@@ -12,7 +12,8 @@ export class ParentTaskService {
   }
 
   async addParentTask(parentTask): Promise<any> {
-    return await this.http.post('http://localhost:8081/project-manager/parenttask/add', parentTask)
+    return await this.http.post('http://localhost:8081/project-manager/parenttask/add',parentTask)
       .toPromise().then(res => res);
   }
+
 }

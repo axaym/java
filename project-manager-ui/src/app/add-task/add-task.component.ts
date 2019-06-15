@@ -129,7 +129,7 @@ export class AddTaskComponent implements OnInit {
   addParentTask() {
     let p: ParentTaskObject = new ParentTaskObject();    
     p.parentTask = this.taskForm.value.task;
-    this.parentTaskService.addParentTask(event).
+    this.parentTaskService.addParentTask(p).
     then(
       res => this.showAlert(res._body)
     );       
