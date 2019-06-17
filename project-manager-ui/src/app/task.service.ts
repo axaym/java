@@ -11,6 +11,11 @@ export class TaskService {
       .toPromise().then(res => res.json());
   }
 
+  async getTasksByProject(task): Promise<any> {
+    return await this.http.post('http://localhost:8081/project-manager/task/tasksByProject', task)
+      .toPromise().then(res => res.json());
+  }
+  
   async addTask(task): Promise<any> {
     return await this.http.post('http://localhost:8081/project-manager/task/add',task)
       .toPromise().then(res => res);

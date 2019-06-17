@@ -27,6 +27,7 @@ import { CustomfilterPipe } from './customfilter.pipe';
 import { ProjectManagerComponent } from './project-manager/project-manager.component';
 import { ProjectModalComponent } from './project-modal/project-modal.component';
 import { ParentTaskModalComponent } from './parent-task-modal/parent-task-modal.component';
+import { EditTaskModalComponent } from './edit-task-modal/edit-task-modal.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { ParentTaskModalComponent } from './parent-task-modal/parent-task-modal.
     CustomfilterPipe,
     ProjectManagerComponent,
     ProjectModalComponent,
-    ParentTaskModalComponent
+    ParentTaskModalComponent,
+    EditTaskModalComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { ParentTaskModalComponent } from './parent-task-modal/parent-task-modal.
   ],
   providers: [TaskService, ParentTaskService, UserService, ProjectService],
   entryComponents: [
-    ProjectManagerComponent, ParentTaskModalComponent, ProjectModalComponent
+    ProjectManagerComponent, ParentTaskModalComponent,
+     ProjectModalComponent, EditTaskModalComponent
   ],
   bootstrap: [AppComponent]
 })

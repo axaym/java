@@ -119,6 +119,7 @@ export class AddTaskComponent implements OnInit {
       p.userId = this.selectedUserId;
       p.parentId = this.selectedParentTaskId;
       p.projectId = this.selectedProjectId;
+      p.status = 0;
       this.taskService.addTask(p).
       then(
         res => this.showAlert(res._body)

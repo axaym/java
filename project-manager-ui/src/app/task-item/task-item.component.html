@@ -1,3 +1,36 @@
-<p>
-  task-item works!
-</p>
+<div class="container">
+    <div class="row">
+        <div class="col-2 header-font">Task</div>
+        <div class="col-2 header-font">Parent</div>
+        <div class="col header-font">Priority</div>
+        <div class="col header-font">Start</div>
+        <div class="col header-font">End</div>
+        <div class="col header-font"></div>
+        <div class="col header-font"></div>
+        <div class="w-100"></div>
+        <div class="col-2">{{selectedRow && selectedRow.task}}</div>
+        <div class="col-2">{{selectedRow && selectedRow.parentTask && selectedRow.parentTask.parentTask}}</div>
+        <div class="col">{{selectedRow && selectedRow.priority}}</div>
+        <div class="col">{{selectedStartDate}}</div>
+        <div class="col">{{selectedEndDate}}</div>
+        <div class="col" *ngIf="selectedRow && selectedRow.status === 0">
+            <button class="btn btn-primary" (click)="edit($event)">Edit</button>
+        </div>
+        <div class="col" *ngIf="selectedRow && selectedRow.status === 0">
+            <button class="btn btn-primary" (click)="endTask($event)">End Task</button>
+        </div>
+        <div class="col" *ngIf="selectedRow && selectedRow.status === 0">
+            <button class="btn btn-primary" (click)="delete($event)">Delete</button>
+        </div>
+        <div class="col" *ngIf="selectedRow && selectedRow.status === 1">
+               
+        </div>
+        <div class="col" *ngIf="selectedRow && selectedRow.status === 1">
+            
+        </div>
+        <div class="col" *ngIf="selectedRow && selectedRow.status === 1">
+            
+        </div>
+    </div>
+    <br>
+</div>
