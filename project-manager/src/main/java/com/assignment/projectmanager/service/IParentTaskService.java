@@ -23,10 +23,6 @@ public interface IParentTaskService {
 	 */
 	public String deleteParentTask(ParentTask parentTask);
 	
-	/**
-	 * @param parentTask
-	 * @return
-	 */
-	public String updateParentTask(ParentTask parentTask);	
+	
 
 }

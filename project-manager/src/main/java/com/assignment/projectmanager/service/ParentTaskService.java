@@ -30,12 +30,5 @@ public class ParentTaskService implements IParentTaskService {
 		parentTaskJpaRepository.delete(parentTask);
 		return "success";
 	}
-
-	@Override
-	public String updateParentTask(ParentTask parentTask) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	
 }
