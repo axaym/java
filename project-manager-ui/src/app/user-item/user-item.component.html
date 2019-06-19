@@ -1,6 +1,6 @@
 <div class="container panel">
   <div class="row content">
-    <div class="col-sm-4 list-group">
+    <div class="col-sm-6 list-group">
       <div class="row list-group-item">
         <label class="fontbold">Employee ID: </label>
         <label>{{selectedRow && selectedRow.employeeId}}</label>
@@ -14,8 +14,8 @@
         <label>{{selectedRow && selectedRow.lastName}}</label>
       </div>
     </div>
-    <div class="col-sm-3 ">
-      <div class="row intpanel">
+    <div class="col-sm-6 ">
+      <div class="row buttoncustom">
         <button class="btn btn-primary" (click)="edit($event)">Edit</button>
       </div>
       <div class="row">

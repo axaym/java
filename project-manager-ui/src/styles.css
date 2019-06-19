@@ -11,3 +11,11 @@ body {
 .fontbold {
     font-weight: bold;
 }
+
+.space {
+    padding-bottom: 10px;
+}
+
+.buttoncustom {
+    padding: 5px;
+}

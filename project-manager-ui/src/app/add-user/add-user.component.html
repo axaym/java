@@ -5,10 +5,10 @@
   <hr class="divider">
   <div class="container">
     <div class="row content">
-      <div class="col">
+      <div class="col-sm-4">
         <input [(ngModel)]="item" placeholder="search...">
       </div>
-      <div class="col">
+      <div class="col-sm-8">
         <div class="btn-toolbar" role="toolbar">
           <div class="btn-group mr-2">
             <label class="fontbold">Sort:</label>
@@ -27,6 +27,7 @@
 
       </div>
     </div>
+    <div class="space"></div>
     <div *ngFor="let user of userListData | customfilter : item">
       <app-user-item [selectedRow]="user" (editItem)="editUser($event)" (deleteItem)="deleteUser($event)">
       </app-user-item>

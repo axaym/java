@@ -1,49 +1,45 @@
 <div class="container viewtask">
-    <h3>View Task</h3>
-    <div class="form-group row">
-        <label for="projectId" class="col-sm-2 col-form-label fontbold">Project:</label>
-        <div class="col-sm-4">
-          <input type="text" value="{{selectedProject}}" class="form-control" id="projectId" 
-          disabled>
-        </div>
-        <div class="col">
-          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mModal" (click)="showProjectModal()">
-            Search
-          </button>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row content">
-          <div class="col">
-            <input [(ngModel)]="item" placeholder="search...">
-          </div>
-          <div class="col">
-            <div class="btn-toolbar" role="toolbar">
-              <div class="btn-group mr-2">
-                <label class="fontbold">Sort:</label>
-              </div>
-    
-              <div class="btn-group mr-2">
-                <button class="btn btn-primary" (click)="sortDate('startDate')">Start Date</button>
-              </div>
-              <div class="btn-group mr-2">
-                <button class="btn btn-primary" (click)="sortDate('endDate')">End Date</button>
-              </div>
-              <div class="btn-group mr-2">
-                <button class="btn btn-primary" (click)="sortNumber('priority')">Priority</button>
-              </div>
-              <div class="btn-group mr-2">
-                  <button class="btn btn-primary" (click)="sortNumber('status')">Completed</button>
-              </div>
-            </div>
-    
-          </div>
-        </div>
-      
-    <div *ngFor = "let task of taskListData">
-      <app-task-item (endTaskItem)="endTask($event)"
-        (editItem)="editTask($event)"
-        (deleteItem)="deleteTask($event)"
-        [selectedRow] = "task"></app-task-item>
-    <div>
+  <h3>View Task</h3>
+  <div class="form-group row">
+    <label for="projectId" class="col-sm-2 col-form-label fontbold">Project:</label>
+    <div class="col-sm-4">
+      <input type="text" value="{{selectedProject}}" class="form-control" id="projectId" disabled>
+    </div>
+    <div class="col">
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mModal" (click)="showProjectModal()">
+        Search
+      </button>
+    </div>
   </div>
+  <div class="container">
+    <div class="row content">
+      <div class="col-sm-4">
+        <input [(ngModel)]="item" placeholder="search...">
+      </div>
+      <div class="col-sm-8">
+        <div class="btn-toolbar" role="toolbar">
+          <div class="btn-group mr-2">
+            <label class="fontbold">Sort:</label>
+          </div>
+
+          <div class="btn-group mr-2">
+            <button class="btn btn-primary" (click)="sortDate('startDate')">Start Date</button>
+          </div>
+          <div class="btn-group mr-2">
+            <button class="btn btn-primary" (click)="sortDate('endDate')">End Date</button>
+          </div>
+          <div class="btn-group mr-2">
+            <button class="btn btn-primary" (click)="sortNumber('priority')">Priority</button>
+          </div>
+          <div class="btn-group mr-2">
+            <button class="btn btn-primary" (click)="sortNumber('status')">Completed</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="space"></div>
+    <div *ngFor="let task of taskListData">
+      <app-task-item (endTaskItem)="endTask($event)" (editItem)="editTask($event)" (deleteItem)="deleteTask($event)" [selectedRow]="task"></app-task-item>
+      <div>
+      </div>

@@ -19,10 +19,18 @@ export class AddProjectComponent implements OnInit {
     this.getProjects();
   }
 
-  sortList(prop) {
-    this.projectListData = this.projectListData.sort(function(a, b){
-      var x = a[prop].toLowerCase();
-      var y = b[prop].toLowerCase();
+  sortDate(prop) {
+    this.projectListData = this.projectListData.sort(function(a, b){      
+      let dateA = new Date(a[prop]);
+      let dateB = new Date(b[prop]);      
+     return dateB.getTime() - dateA.getTime();
+    });
+  }
+
+  sortNumber(prop) {
+    this.projectListData = this.projectListData.sort(function(a, b){      
+      var x = a[prop];
+      var y = b[prop];
       if (x < y) {return -1;}
       if (x > y) {return 1;}
       return 0;
