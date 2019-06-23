@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ProjectService } from '../project.service';
+import { ViewChild } from '@angular/core';
+import { ProjectFormComponent } from 'src/app/project-form/project-form.component';
 
 @Component({
   selector: 'app-add-project',
@@ -12,6 +14,7 @@ export class AddProjectComponent implements OnInit {
   @Input() projectListData;
   @Input() selectedFormData;
   @Input() submitLabel;
+  @ViewChild('projectForm') projectForm :ProjectFormComponent;
 
   constructor(private projectService: ProjectService) { }
 
@@ -46,8 +49,9 @@ export class AddProjectComponent implements OnInit {
 
   editProject(event) {
     this.selectedFormData = event;
-    this.selectedManager = event.user.firstName+ ' ' + event.user.lastName;
+    //this.selectedManager = event.user.firstName+ ' ' + event.user.lastName;
     this.submitLabel = "Update";
+    this.projectForm.callProjectFormFunc(event);
   }
 
   deleteProject(event) {

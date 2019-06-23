@@ -28,6 +28,8 @@ public class Project implements java.io.Serializable {
 	@JsonIgnore
 	private Set<Task> tasks;
 	
+	private Integer taskCount;
+	
 	@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 	private ProjectUser user;
 	
@@ -93,8 +95,15 @@ public class Project implements java.io.Serializable {
 
 	public void setUser(ProjectUser user) {
 		this.user = user;
+	}
+
+	public Integer getTaskCount() {
+		return tasks.size();
+	}
+
+	public void setTaskCount(Integer taskCount) {
+		this.taskCount = taskCount;
 	}	
-	
-	
+		
 	
 }

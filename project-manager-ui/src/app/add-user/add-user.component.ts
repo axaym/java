@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UserService } from '../user.service';
+import { ViewChild } from '@angular/core';
+import { UserFormComponent } from 'src/app/user-form/user-form.component';
 @Component({
   selector: 'app-add-user',
   templateUrl: './add-user.component.html',
@@ -10,6 +12,7 @@ export class AddUserComponent implements OnInit {
   @Input() userListData;
   @Input() selectedFormData;
   @Input() submitLabel;
+  @ViewChild('userForm') userForm : UserFormComponent;
 
   constructor(private userService: UserService) { }
 
@@ -37,6 +40,7 @@ export class AddUserComponent implements OnInit {
   editUser(event) {
     this.selectedFormData = event;
     this.submitLabel = "Update";
+    this.userForm.callUserFormFunc(event);
   }
 
   deleteUser(event) {

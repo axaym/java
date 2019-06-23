@@ -1,6 +1,7 @@
 <div class="container">
     <h3>Add Project</h3>
-    <app-project-form [submitLabel]="submitLabel" [selectedFormData]="selectedFormData" (itemUpdated)="editProjectServiceCall($event)"
+    <app-project-form #projectForm [submitLabel]="submitLabel" 
+      [selectedFormData]="selectedFormData" (itemUpdated)="editProjectServiceCall($event)"
       (itemAdded)="addProject($event)"
       [selectedManager]="selectedManager"></app-project-form>
     <hr class="divider">

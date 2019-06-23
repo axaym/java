@@ -10,4 +10,5 @@ export class ProjectObject {
     public status: number;
     public userId: number;
     public user: UserObject;
+    public taskCount: number;
 }

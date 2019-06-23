@@ -1,6 +1,7 @@
 <div class="container">
   <h3>Add User</h3>
-  <app-user-form [submitLabel]="submitLabel" [selectedFormData]="selectedFormData" (itemUpdated)="editUserServiceCall($event)"
+  <app-user-form #userForm [submitLabel]="submitLabel" 
+    [selectedFormData]="selectedFormData" (itemUpdated)="editUserServiceCall($event)"
     (itemAdded)="addUser($event)"></app-user-form>
   <hr class="divider">
   <div class="container">

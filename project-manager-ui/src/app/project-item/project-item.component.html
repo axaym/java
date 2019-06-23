@@ -6,19 +6,26 @@
           <label>{{selectedRow && selectedRow.project}}</label>
         </div>
         <div class="row list-group-item">
+          <label class="fontbold">No of Tasks: </label>
+          <label>{{selectedRow && selectedRow.taskCount}}</label>
+        </div>
+        <div class="row list-group-item">
           <label class="fontbold">Start Date: </label>
           <label>{{selectedRow && selectedRow.startDate}}</label>
         </div>
         <div class="row list-group-item">
           <label class="fontbold">End Date: </label>
           <label>{{selectedRow && selectedRow.endDate}}</label>
-        </div>
-        <div class="row list-group-item">
-            <label class="fontbold">Priority: </label>
-            <label>{{selectedRow && selectedRow.priority}}</label>
-          </div>
+        </div>           
+
       </div>
-      <div class="col-sm-6">
+      <div class="col-sm-2 list-group">
+        <div class="row list-group-item">
+          <label class="fontbold">Priority: </label>
+          <label>{{selectedRow && selectedRow.priority}}</label>
+        </div>
+      </div>
+      <div class="col-sm-4">
         <div class="row buttoncustom">
           <button class="btn btn-primary" (click)="edit($event)">Edit</button>
         </div>
@@ -29,3 +36,4 @@
       </div>
     </div>
   </div>
+  <hr>

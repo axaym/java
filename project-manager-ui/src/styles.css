@@ -19,3 +19,7 @@ body {
 .buttoncustom {
     padding: 5px;
 }
+
+.errorcomp {
+    display: block;
+}

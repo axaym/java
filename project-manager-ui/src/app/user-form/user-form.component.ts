@@ -16,7 +16,7 @@ export class UserFormComponent implements OnInit {
   @Input() selectedFormData;
   @Output() itemAdded = new EventEmitter<UserObject>();
   @Output() itemUpdated = new EventEmitter<UserObject>();
-  submitted = false;
+  @Input() submitted = false;
   
   userForm = this.fb.group({
     userId: [''],
@@ -68,6 +68,18 @@ export class UserFormComponent implements OnInit {
     this.userForm.reset();
     this.submitLabel = "Add";
     this.submitted = false;
+    this.userForm.controls.firstName.setValue(undefined);
+    this.userForm.controls.lastName.setValue(undefined);
+    this.userForm.controls.employeeId.setValue(undefined);
+  
+  }
+
+  callUserFormFunc(selectedObj) {
+    this.submitted = false;
+    this.submitLabel = "Update";
+    this.userForm.controls.firstName.setValue(selectedObj.firstName);
+    this.userForm.controls.lastName.setValue(selectedObj.lastName);
+    this.userForm.controls.employeeId.setValue(selectedObj.employeeId);
   }
 
   showAlert(str) {

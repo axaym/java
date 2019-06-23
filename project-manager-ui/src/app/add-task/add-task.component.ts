@@ -30,6 +30,7 @@ export class AddTaskComponent implements OnInit {
   @Input() submitLabel;
   @Input() disableComponent:boolean = false;
   
+  @Input() dateError = false;
   @Input() selectedFormData;
   @Output() itemAdded = new EventEmitter<TaskObject>();
   @Output() itemUpdated = new EventEmitter<TaskObject>();
@@ -63,19 +64,20 @@ export class AddTaskComponent implements OnInit {
 
   addOrUpdateItem(event) {
     this.submitted = true;    
-    if (this.taskForm.invalid) {
-        return;
-    }
+    
     if(this.disableComponent) {
         this.addParentTask();
     }
     else {
-        this.addTask();
+        return this.addTask();
     }    
     this.clearForm();
   }
 
   addTask() {
+    if (this.taskForm.invalid || this.checkDates()) {
+      return;
+    }
     let p: TaskObject = new TaskObject();
     let startDate = this.taskForm.value.startDate;
     let endDate = this.taskForm.value.endDate;
@@ -184,5 +186,25 @@ export class AddTaskComponent implements OnInit {
       this.disableComponent = false;
     }
   }
+
+  checkDates() {
+    if(this.taskForm && this.taskForm.controls) {
+      let sDate:Date = new Date(this.taskForm.value.startDate.year, this.taskForm.value.startDate.month+1, this.taskForm.value.startDate.day+1);
+      let eDate:Date = new Date(this.taskForm.value.endDate.year, this.taskForm.value.endDate.month+1, this.taskForm.value.endDate.day+1);
+      if(eDate.getTime() < sDate.getTime()) {
+        this.dateError = true;  
+        return true;
+      }
+      else {
+        this.dateError = false;
+        return false;
+      }
+    }
+    else {
+      this.dateError = false;
+      return false;
+    }
+  }
+
 }
 

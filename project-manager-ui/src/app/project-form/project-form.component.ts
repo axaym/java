@@ -20,17 +20,20 @@ export class ProjectFormComponent implements OnInit {
 
   @Input() submitLabel;
   @Input() disableDate:boolean;
+  model: Date;
+  
   
   @Input() selectedFormData;
   @Output() itemAdded = new EventEmitter<ProjectObject>();
   @Output() itemUpdated = new EventEmitter<ProjectObject>();
   submitted = false;
+  @Input() dateError = false;
   
   projectForm = this.fb.group({
     projectId: [''],
     project: ['', Validators.required],
-    startDate: [''],
-    endDate: [''],
+    startDate: ['', Validators.required],
+    endDate: ['', Validators.required],
     status: [''],
     priority: [''],
     userId: ['']
@@ -52,7 +55,7 @@ export class ProjectFormComponent implements OnInit {
   addOrUpdateItem(event) {
     this.submitted = true;
     
-    if (this.projectForm.invalid) {
+    if (this.projectForm.invalid || this.checkDates()) {
         return;
     }
     let p: ProjectObject = new ProjectObject();
@@ -111,12 +114,51 @@ export class ProjectFormComponent implements OnInit {
     });
   }
 
+  callProjectFormFunc(selectedObj) {
+    this.submitted = false;
+    this.submitLabel = "Update";
+    let sDate:Date = new Date(selectedObj.startDate);
+    let eDate:Date = new Date(selectedObj.endDate);
+    this.projectForm.controls.project.setValue(selectedObj.project);
+    this.projectForm.controls.startDate.setValue({year: sDate.getFullYear(), month: sDate.getMonth(), day: sDate.getDate()});
+    this.projectForm.controls.endDate.setValue({year: eDate.getFullYear(), month: eDate.getMonth(), day: eDate.getDate()});
+    this.projectForm.controls.priority.setValue(selectedObj.priority);
+    this.selectedManager = selectedObj.user.firstName+ ' ' + selectedObj.user.lastName;
+    this.disableDate = false;
+  }
+
+  checkDates() {
+    if(this.projectForm && this.projectForm.controls) {
+      let sDate:Date = new Date(this.projectForm.value.startDate.year, this.projectForm.value.startDate.month+1, this.projectForm.value.startDate.day+1);
+      let eDate:Date = new Date(this.projectForm.value.endDate.year, this.projectForm.value.endDate.month+1, this.projectForm.value.endDate.day+1);
+      if(eDate.getTime() < sDate.getTime()) {
+        this.dateError = true;  
+        return true;
+      }
+      else {
+        this.dateError = false;
+        return false;
+      }
+    }
+    else {
+      this.dateError = false;
+      return false;
+    }
+  }
+
   checkBoxSelected(event) {
     if(event.currentTarget.checked) {
-        this.disableDate = false;        
+        this.disableDate = false;     
+        let now:Date = new Date();
+        let nextDay:Date = new Date();
+        nextDay.setDate(now.getDate() + 1);
+        this.projectForm.controls.startDate.setValue({year: now.getFullYear(), month: now.getMonth(), day: now.getDate()});
+        this.projectForm.controls.endDate.setValue({year: nextDay.getFullYear(), month: nextDay.getMonth(), day: nextDay.getDate()});
     }
     else {
       this.disableDate = true;
+      this.projectForm.controls.startDate.setValue(undefined);
+      this.projectForm.controls.endDate.setValue(undefined);      
     }
   }
 }

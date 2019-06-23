@@ -97,5 +97,5 @@
 	</build>
 
 	<packaging>war</packaging>
-	<description>project manager </description>
+	<description>project manager</description>
 </project>
