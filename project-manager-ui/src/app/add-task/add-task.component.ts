@@ -152,7 +152,6 @@ export class AddTaskComponent implements OnInit {
     let modalRef = this.modal.open(ProjectManagerComponent);
     modalRef.componentInstance.selectedManager = this.selectedUser;
     modalRef.result.then(result => {
-      console.log(result);
       this.selectedUser = result.firstName+' '+result.lastName;
       this.selectedUserId = result.userId;
     });
@@ -162,7 +161,6 @@ export class AddTaskComponent implements OnInit {
     let modalRef = this.modal.open(ParentTaskModalComponent);
     modalRef.componentInstance.selectedParentTask = this.selectedParentTask;
     modalRef.result.then(result => {
-      console.log(result);
       this.selectedParentTask = result.parentTask;
       this.selectedParentTaskId = result.parentId;
     });
@@ -172,7 +170,6 @@ export class AddTaskComponent implements OnInit {
     let modalRef = this.modal.open(ProjectModalComponent);
     modalRef.componentInstance.selectedProject = this.selectedProject;
     modalRef.result.then(result => {
-      console.log(result);
       this.selectedProject = result.project;
       this.selectedProjectId = result.projectId;
     });

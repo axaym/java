@@ -108,7 +108,6 @@ export class ProjectFormComponent implements OnInit {
     let modalRef = this.modal.open(ProjectManagerComponent);
     modalRef.componentInstance.selectedManager = this.selectedManager;
     modalRef.result.then(result => {
-      console.log(result);
       this.selectedManager = result.firstName+' '+result.lastName;
       this.selectedManagerId = result.userId;
     });

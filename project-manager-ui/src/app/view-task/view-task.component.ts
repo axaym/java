@@ -63,7 +63,6 @@ export class ViewTaskComponent implements OnInit {
     let modalRef = this.modal.open(ProjectModalComponent);
     modalRef.componentInstance.selectedProject = this.selectedProject;
     modalRef.result.then(result => {
-      console.log(result);
       this.selectedProject = result.project;
       this.selectedProjectId = result.projectId;
       this.getTasksByProject();
@@ -73,6 +72,8 @@ export class ViewTaskComponent implements OnInit {
   editTask(event) {
     let modalRef = this.modal.open(EditTaskModalComponent, {size: 'lg'});
     modalRef.componentInstance.selectedFormData = event;
+    modalRef.componentInstance.callTaskFormFunc(event);
+    
     modalRef.result.then(result => {
       this.getTasksByProject();
     });

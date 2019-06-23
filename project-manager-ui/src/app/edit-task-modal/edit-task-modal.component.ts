@@ -24,6 +24,7 @@ export class EditTaskModalComponent implements OnInit {
   selectedParentTaskId: any;
   @Input() selectedFormData;
   submitted = false;
+  @Input() dateError = false;
 
   taskForm = this.fb.group({
     taskId: [''],
@@ -52,11 +53,11 @@ export class EditTaskModalComponent implements OnInit {
 
  addOrUpdateItem(event) {
   this.submitted = true;    
-  if (this.taskForm.invalid) {
+  if (this.taskForm.invalid || this.checkDates()) {
       return;
   }
   this.addTask();
- //this.clearForm();
+  this.clearForm();
 }
 
 addTask() {
@@ -111,7 +112,6 @@ showUserModal() {
   let modalRef = this.modal.open(ProjectManagerComponent);
   modalRef.componentInstance.selectedManager = this.selectedUser;
   modalRef.result.then(result => {
-    console.log(result);
     this.selectedUser = result.firstName+' '+result.lastName;
     this.selectedUserId = result.userId;
   });
@@ -121,10 +121,42 @@ showParentTaskModal() {
   let modalRef = this.modal.open(ParentTaskModalComponent);
   modalRef.componentInstance.selectedParentTask = this.selectedParentTask;
   modalRef.result.then(result => {
-    console.log(result);
     this.selectedParentTask = result.parentTask;
     this.selectedParentTaskId = result.parentId;
   });
 }
+
+callTaskFormFunc(selectedObj) {
+  this.submitted = false;
+  let sDate:Date = new Date(selectedObj.startDate);
+  let eDate:Date = new Date(selectedObj.endDate);
+  this.taskForm.controls.projectId.setValue(selectedObj.project.project);
+  this.taskForm.controls.task.setValue(selectedObj.task);
+  this.taskForm.controls.startDate.setValue({year: sDate.getFullYear(), month: sDate.getMonth(), day: sDate.getDate()});
+  this.taskForm.controls.endDate.setValue({year: eDate.getFullYear(), month: eDate.getMonth(), day: eDate.getDate()});
+  this.taskForm.controls.priority.setValue(selectedObj.priority);
+  //this.selectedManager = selectedObj.user.firstName+ ' ' + selectedObj.user.lastName;
+  //this.disableDate = false;
+}
+
+checkDates() {
+  if(this.taskForm && this.taskForm.controls) {
+    let sDate:Date = new Date(this.taskForm.value.startDate.year, this.taskForm.value.startDate.month+1, this.taskForm.value.startDate.day+1);
+    let eDate:Date = new Date(this.taskForm.value.endDate.year, this.taskForm.value.endDate.month+1, this.taskForm.value.endDate.day+1);
+    if(eDate.getTime() < sDate.getTime()) {
+      this.dateError = true;  
+      return true;
+    }
+    else {
+      this.dateError = false;
+      return false;
+    }
+  }
+  else {
+    this.dateError = false;
+    return false;
+  }
+}
+
 
 }
