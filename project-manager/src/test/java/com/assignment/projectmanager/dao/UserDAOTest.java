@@ -21,7 +21,7 @@ public class UserDAOTest {
 	@Autowired
 	private UserJpaRepository userJpaRepository;
 
-	@Test
+	//@Test
 	public void testSaveAndFindUser() throws Exception {
 		
 		ProjectUser user1 = new ProjectUser();
@@ -39,7 +39,7 @@ public class UserDAOTest {
 		
 	}
 	
-	@Test
+	//@Test
 	public void testDeleteAndFindUser() throws Exception {
 		ProjectUser user1 = new ProjectUser();
 		ObjectMapper objectMapper = new ObjectMapper();

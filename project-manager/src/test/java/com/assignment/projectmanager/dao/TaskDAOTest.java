@@ -21,7 +21,7 @@ public class TaskDAOTest {
 	@Autowired
 	private TaskJpaRepository taskJpaRepository;
 
-	@Test
+	//@Test
 	public void testSaveAndFindTask() throws Exception {
 		
 		Task task1 = new Task();
@@ -39,7 +39,7 @@ public class TaskDAOTest {
 		
 	}
 	
-	@Test
+	//@Test
 	public void testDeleteAndFindTask() throws Exception {
 		Task task1 = new Task();
 		ObjectMapper objectMapper = new ObjectMapper();
